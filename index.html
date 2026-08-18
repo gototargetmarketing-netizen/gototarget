@@ -148,32 +148,26 @@
         }
 
         .client-logo-card {
-            width: 170px;
-            height: 88px;
-            flex: 0 0 170px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 12px 18px;
-            border: 1px solid rgba(226,232,240,.9);
-            border-radius: 18px;
-            background: rgba(255,255,255,.92);
-            box-shadow: 0 8px 24px rgba(15,23,42,.035);
-            transition: transform .3s ease, box-shadow .3s ease, border-color .3s ease;
-        }
+    width: 225px;
+    height: 125px;
+    flex: 0 0 225px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    background: transparent;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+}
 
-        .client-logo-card:hover {
-            transform: translateY(-3px);
-            border-color: rgba(8,145,178,.25);
-            box-shadow: 0 14px 30px rgba(8,145,178,.08);
-        }
 
-        .client-logo-card img {
-            width: 135px;
-            height: 62px;
-            object-fit: contain;
-            display: block;
-        }
+       .client-logo-card img {
+    width: 190px;
+    height: 88px;
+    object-fit: contain;
+    display: block;
+}
 
         @keyframes clientLeft {
             from { transform: translateX(0); }
