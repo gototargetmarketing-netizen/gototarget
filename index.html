@@ -87,6 +87,70 @@
         ::-webkit-scrollbar-thumb:hover {
             background: #0891b2;
         }
+
+
+        /* Client Logos Auto Scroll */
+.client-logo-slider {
+    overflow: hidden;
+    width: 100%;
+}
+
+.client-logo-track {
+    display: grid;
+    grid-template-rows: repeat(2, 1fr);
+    grid-auto-flow: column;
+    grid-auto-columns: 50%;
+    width: max-content;
+    animation: clientLogoScroll 35s linear infinite;
+}
+
+.client-logo-item {
+    min-height: 100px;
+    padding: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.client-logo-item img {
+    height: 64px;
+    width: auto;
+    max-width: 140px;
+    object-fit: contain;
+}
+
+@keyframes clientLogoScroll {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(-50%);
+    }
+}
+
+/* Tablet */
+@media (min-width: 640px) {
+    .client-logo-track {
+        grid-auto-columns: 33.333333%;
+    }
+}
+
+/* Desktop */
+@media (min-width: 1024px) {
+    .client-logo-track {
+        grid-auto-columns: 16.666667%;
+    }
+
+    .client-logo-item {
+        min-height: 90px;
+    }
+}
+
+/* Pause when user touches */
+.client-logo-slider:hover .client-logo-track {
+    animation-play-state: paused;
+}
     </style>
 </head>
 <body class="bg-white text-slate-900 antialiased selection:bg-cyan-500 selection:text-white">
@@ -188,44 +252,110 @@
     <section class="py-20 border-t border-b border-slate-100 bg-slate-50/80">
         <div class="max-w-7xl mx-auto px-6 text-center">
             <h2 class="text-xs uppercase tracking-[0.25em] text-slate-500 font-semibold mb-12">TRUSTED BY INDUSTRY LEADERS & INNOVATIVE BRANDS</h2>
-            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-8 items-center">
-                <div class="p-4 hover:scale-105 transition-all flex items-center justify-center">
-                    <img src="./ram.png" alt="ram" class="h-20 w-auto object-contain">
-                </div>
-                <div class="p-4 hover:scale-105 transition-all flex items-center justify-center">
-                    <img src="./central.png" alt="central" class="h-20 w-auto object-contain">
-                </div>
-                <div class="p-4 hover:scale-105 transition-all flex items-center justify-center">
-                    <img src="./major.png" alt="major" class="h-20 w-auto object-contain">
-                </div>
-                <div class="p-4 hover:scale-105 transition-all flex items-center justify-center">
-                    <img src="./im.png" alt="im" class="h-20 w-auto object-contain">
-                </div>
-                <div class="p-4 hover:scale-105 transition-all flex items-center justify-center">
-                    <img src="./noodle.png" alt="noodle" class="h-20 w-auto object-contain">
-                </div>
-                <div class="p-4 hover:scale-105 transition-all flex items-center justify-center">
-                    <img src="./kk.png" alt="kk" class="h-20 w-auto object-contain">
-                </div>
-                <div class="p-4 hover:scale-105 transition-all flex items-center justify-center">
-                    <img src="./wella.png" alt="wella" class="h-20 w-auto object-contain">
-                </div>
-                <div class="p-4 hover:scale-105 transition-all flex items-center justify-center">
-                    <img src="./pachara.png" alt="pachara" class="h-20 w-auto object-contain">
-                </div>
-                <div class="p-4 hover:scale-105 transition-all flex items-center justify-center">
-                    <img src="./cpn.png" alt="cpn" class="h-20 w-auto object-contain">
-                </div>
-                <div class="p-4 hover:scale-105 transition-all flex items-center justify-center">
-                    <img src="./baan.png" alt="baan" class="h-20 w-auto object-contain">
-                </div>
-                <div class="p-4 hover:scale-105 transition-all flex items-center justify-center">
-                    <img src="./ashida.png" alt="ashida" class="h-20 w-auto object-contain">
-                </div>
-                <div class="p-4 hover:scale-105 transition-all flex items-center justify-center">
-                    <img src="./fly.png" alt="fly" class="h-20 w-auto object-contain">
-                </div>
-            </div>
+           <div class="client-logo-slider">
+    <div class="client-logo-track">
+
+        <div class="client-logo-item">
+            <img src="./ram.png" alt="RAM Hospital">
+        </div>
+
+        <div class="client-logo-item">
+            <img src="./central.png" alt="Central Chiangmai">
+        </div>
+
+        <div class="client-logo-item">
+            <img src="./major.png" alt="Major">
+        </div>
+
+        <div class="client-logo-item">
+            <img src="./im.png" alt="IM-MEE">
+        </div>
+
+        <div class="client-logo-item">
+            <img src="./noodle.png" alt="Noodle">
+        </div>
+
+        <div class="client-logo-item">
+            <img src="./kk.png" alt="KK">
+        </div>
+
+        <div class="client-logo-item">
+            <img src="./wella.png" alt="Wella">
+        </div>
+
+        <div class="client-logo-item">
+            <img src="./pachara.png" alt="Pachara">
+        </div>
+
+        <div class="client-logo-item">
+            <img src="./cpn.png" alt="CPN">
+        </div>
+
+        <div class="client-logo-item">
+            <img src="./baan.png" alt="Baan">
+        </div>
+
+        <div class="client-logo-item">
+            <img src="./ashida.png" alt="Ashida">
+        </div>
+
+        <div class="client-logo-item">
+            <img src="./fly.png" alt="Fly">
+        </div>
+
+
+        <!-- LOOP -->
+
+        <div class="client-logo-item">
+            <img src="./ram.png" alt="RAM Hospital">
+        </div>
+
+        <div class="client-logo-item">
+            <img src="./central.png" alt="Central Chiangmai">
+        </div>
+
+        <div class="client-logo-item">
+            <img src="./major.png" alt="Major">
+        </div>
+
+        <div class="client-logo-item">
+            <img src="./im.png" alt="IM-MEE">
+        </div>
+
+        <div class="client-logo-item">
+            <img src="./noodle.png" alt="Noodle">
+        </div>
+
+        <div class="client-logo-item">
+            <img src="./kk.png" alt="KK">
+        </div>
+
+        <div class="client-logo-item">
+            <img src="./wella.png" alt="Wella">
+        </div>
+
+        <div class="client-logo-item">
+            <img src="./pachara.png" alt="Pachara">
+        </div>
+
+        <div class="client-logo-item">
+            <img src="./cpn.png" alt="CPN">
+        </div>
+
+        <div class="client-logo-item">
+            <img src="./baan.png" alt="Baan">
+        </div>
+
+        <div class="client-logo-item">
+            <img src="./ashida.png" alt="Ashida">
+        </div>
+
+        <div class="client-logo-item">
+            <img src="./fly.png" alt="Fly">
+        </div>
+
+    </div>
+</div>
         </div>
     </section>
 
