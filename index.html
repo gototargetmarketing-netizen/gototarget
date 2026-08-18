@@ -88,212 +88,107 @@
             background: #0891b2;
         }
 
-        /* ===== Premium Client Logo Carousel ===== */
+        /* ===== Premium Client Logo Grid ===== */
         .client-showcase {
             position: relative;
             overflow: hidden;
             background:
-                radial-gradient(circle at 50% 0%, rgba(8,145,178,.055), transparent 42%),
+                radial-gradient(circle at 50% 0%, rgba(8,145,178,.045), transparent 42%),
                 #f8fafc;
         }
 
-        .client-showcase::before,
-        .client-showcase::after {
-            content: "";
-            position: absolute;
-            top: 0;
-            bottom: 0;
-            width: 90px;
-            z-index: 3;
-            pointer-events: none;
-        }
-
-        .client-showcase::before {
-            left: 0;
-            background: linear-gradient(90deg, #f8fafc, rgba(248,250,252,0));
-        }
-
-        .client-showcase::after {
-            right: 0;
-            background: linear-gradient(270deg, #f8fafc, rgba(248,250,252,0));
-        }
-
-        .client-carousel {
-            display: flex;
-            flex-direction: column;
-            gap: 18px;
-            margin-top: 34px;
+        .client-carousel-single {
+            margin-top: 42px;
         }
 
         .client-row {
             width: 100%;
-            overflow: hidden;
-            position: relative;
-        }
-
-        .client-track {
-            display: flex;
-            align-items: center;
-            width: max-content;
-            gap: 18px;
-            will-change: transform;
-        }
-
-        .client-track.left {
-            animation: clientLeft 42s linear infinite;
-        }
-
-        .client-track.right {
-            animation: clientRight 46s linear infinite;
-        }
-
-        .client-logo-card {
-    width: 250px;
-    height: 135px;
-    flex: 0 0 250px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0;
-    background: transparent;
-    border: none;
-    border-radius: 0;
-    box-shadow: none;
-}
-
-
-       .client-logo-card img {
-    width: 230px;
-    height: 108px;
-    object-fit: contain;
-    display: block;
-}
-
-        @keyframes clientLeft {
-            from { transform: translateX(0); }
-            to { transform: translateX(-50%); }
-        }
-
-        @keyframes clientRight {
-            from { transform: translateX(-50%); }
-            to { transform: translateX(0); }
-        }
-
-    
-
-        @media (max-width: 767px) {
-            .client-showcase {
-                padding-top: 58px !important;
-                padding-bottom: 58px !important;
-            }
-
-            .client-showcase::before,
-            .client-showcase::after {
-                width: 34px;
-            }
-
-            .client-carousel {
-                gap: 12px;
-                margin-top: 26px;
-            }
-
-            .client-track {
-                gap: 10px;
-            }
-
-            .client-logo-card {
-                width: 142px;
-                height: 78px;
-                flex-basis: 142px;
-                padding: 9px 12px;
-                border-radius: 15px;
-            }
-
-            .client-logo-card img {
-                width: 112px;
-                height: 54px;
-            }
-
-            .client-track.left {
-                animation-duration: 34s;
-            }
-
-            .client-track.right {
-                animation-duration: 38s;
-            }
-        }
-
-        @media (prefers-reduced-motion: reduce) {
-            .client-track.left,
-            .client-track.right {
-                animation: none;
-            }
-        }
-
-
-        /* ===== Single-row client logo presentation ===== */
-        .client-carousel-single {
-            margin-top: 34px;
         }
 
         .client-track.single {
-            gap: 26px;
-            animation: clientSingle 58s linear infinite;
+            display: grid;
+            grid-template-columns: repeat(6, minmax(0, 1fr));
+            gap: 34px 28px;
+            width: 100%;
+            align-items: center;
         }
 
         .client-logo-card {
-            width: 225px;
-            height: 125px;
-            flex: 0 0 205px;
-            padding: 14px 20px;
-            border-radius: 20px;
+            width: 100%;
+            height: 105px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 8px 12px;
+            background: transparent;
+            border: none;
+            border-radius: 0;
+            box-shadow: none;
+            transition: transform .25s ease, opacity .25s ease;
+        }
+
+        .client-logo-card:hover {
+            transform: scale(1.06);
         }
 
         .client-logo-card img {
-            width: 190px;
-            height: 88px;
+            width: 165px;
+            height: 78px;
+            object-fit: contain;
+            display: block;
+            filter: none;
         }
 
-        @keyframes clientSingle {
-            from { transform: translateX(0); }
-            to { transform: translateX(-50%); }
+        /* Hide duplicated logos because this is now a clean multi-row presentation */
+        .client-track.single .client-logo-card:nth-child(n+13) {
+            display: none;
         }
 
-        @media (max-width: 767px) {
-            .client-carousel-single {
-                margin-top: 28px;
-            }
-
+        @media (max-width: 1024px) {
             .client-track.single {
-                gap: 10px;
-                animation-duration: 48s;
+                grid-template-columns: repeat(4, minmax(0, 1fr));
+                gap: 28px 18px;
             }
 
             .client-logo-card {
-                width: 172px;
-                height: 96px;
-                flex-basis: 172px;
-                padding: 0;
-                border-radius: 0;
-                background: transparent;
-                border: none;
-                box-shadow: none;
+                height: 92px;
             }
 
             .client-logo-card img {
-                width: 150px;
-                height: 72px;
-                object-fit: contain;
-                display: block;
+                width: 145px;
+                height: 70px;
             }
         }
 
-        @media (prefers-reduced-motion: reduce) {
+        @media (max-width: 767px) {
+            .client-showcase {
+                padding-top: 52px !important;
+                padding-bottom: 52px !important;
+            }
+
+            .client-carousel-single {
+                margin-top: 32px;
+            }
+
             .client-track.single {
-                animation: none;
+                grid-template-columns: repeat(4, minmax(0, 1fr));
+                gap: 28px 10px;
+            }
+
+            .client-logo-card {
+                height: 78px;
+                padding: 4px 2px;
+            }
+
+            .client-logo-card img {
+                width: 92px;
+                height: 58px;
+            }
+
+            .client-logo-card:hover {
+                transform: none;
             }
         }
-
     </style>
 </head>
 <body class="bg-white text-slate-900 antialiased selection:bg-cyan-500 selection:text-white">
@@ -409,20 +304,6 @@
                 <div class="client-row">
                     <div class="client-track single">
 
-                        <div class="client-logo-card"><img src="./ram.png" alt="RAM Hospital"></div>
-                        <div class="client-logo-card"><img src="./central.png" alt="Central Chiangmai"></div>
-                        <div class="client-logo-card"><img src="./major.png" alt="Major"></div>
-                        <div class="client-logo-card"><img src="./im.png" alt="IM-MEE"></div>
-                        <div class="client-logo-card"><img src="./noodle.png" alt="Noodle"></div>
-                        <div class="client-logo-card"><img src="./kk.png" alt="KK"></div>
-                        <div class="client-logo-card"><img src="./wella.png" alt="Wella"></div>
-                        <div class="client-logo-card"><img src="./pachara.png" alt="Pachara"></div>
-                        <div class="client-logo-card"><img src="./cpn.png" alt="CPN"></div>
-                        <div class="client-logo-card"><img src="./baan.png" alt="Baan"></div>
-                        <div class="client-logo-card"><img src="./ashida.png" alt="Ashida"></div>
-                        <div class="client-logo-card"><img src="./fly.png" alt="Fly in Chiang Mai"></div>
-
-                        <!-- Duplicate for seamless infinite loop -->
                         <div class="client-logo-card"><img src="./ram.png" alt="RAM Hospital"></div>
                         <div class="client-logo-card"><img src="./central.png" alt="Central Chiangmai"></div>
                         <div class="client-logo-card"><img src="./major.png" alt="Major"></div>
