@@ -88,69 +88,156 @@
             background: #0891b2;
         }
 
+        /* ===== Premium Client Logo Carousel ===== */
+        .client-showcase {
+            position: relative;
+            overflow: hidden;
+            background:
+                radial-gradient(circle at 50% 0%, rgba(8,145,178,.055), transparent 42%),
+                #f8fafc;
+        }
 
-        /* Client Logos Auto Scroll */
-.client-logo-slider {
-    overflow: hidden;
-    width: 100%;
-}
+        .client-showcase::before,
+        .client-showcase::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 90px;
+            z-index: 3;
+            pointer-events: none;
+        }
 
-.client-logo-track {
-    display: grid;
-    grid-template-rows: repeat(2, 1fr);
-    grid-auto-flow: column;
-    grid-auto-columns: 50%;
-    width: max-content;
-    animation: clientLogoScroll 35s linear infinite;
-}
+        .client-showcase::before {
+            left: 0;
+            background: linear-gradient(90deg, #f8fafc, rgba(248,250,252,0));
+        }
 
-.client-logo-item {
-    min-height: 100px;
-    padding: 16px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
+        .client-showcase::after {
+            right: 0;
+            background: linear-gradient(270deg, #f8fafc, rgba(248,250,252,0));
+        }
 
-.client-logo-item img {
-    height: 64px;
-    width: auto;
-    max-width: 140px;
-    object-fit: contain;
-}
+        .client-carousel {
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+            margin-top: 34px;
+        }
 
-@keyframes clientLogoScroll {
-    from {
-        transform: translateX(0);
-    }
+        .client-row {
+            width: 100%;
+            overflow: hidden;
+            position: relative;
+        }
 
-    to {
-        transform: translateX(-50%);
-    }
-}
+        .client-track {
+            display: flex;
+            align-items: center;
+            width: max-content;
+            gap: 18px;
+            will-change: transform;
+        }
 
-/* Tablet */
-@media (min-width: 640px) {
-    .client-logo-track {
-        grid-auto-columns: 33.333333%;
-    }
-}
+        .client-track.left {
+            animation: clientLeft 42s linear infinite;
+        }
 
-/* Desktop */
-@media (min-width: 1024px) {
-    .client-logo-track {
-        grid-auto-columns: 16.666667%;
-    }
+        .client-track.right {
+            animation: clientRight 46s linear infinite;
+        }
 
-    .client-logo-item {
-        min-height: 90px;
-    }
-}
+        .client-logo-card {
+            width: 170px;
+            height: 88px;
+            flex: 0 0 170px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px 18px;
+            border: 1px solid rgba(226,232,240,.9);
+            border-radius: 18px;
+            background: rgba(255,255,255,.92);
+            box-shadow: 0 8px 24px rgba(15,23,42,.035);
+            transition: transform .3s ease, box-shadow .3s ease, border-color .3s ease;
+        }
 
-/* Pause when user touches */
-.client-logo-slider:hover .client-logo-track {
-    animation-play-state: paused;
-}
+        .client-logo-card:hover {
+            transform: translateY(-3px);
+            border-color: rgba(8,145,178,.25);
+            box-shadow: 0 14px 30px rgba(8,145,178,.08);
+        }
+
+        .client-logo-card img {
+            width: 135px;
+            height: 62px;
+            object-fit: contain;
+            display: block;
+        }
+
+        @keyframes clientLeft {
+            from { transform: translateX(0); }
+            to { transform: translateX(-50%); }
+        }
+
+        @keyframes clientRight {
+            from { transform: translateX(-50%); }
+            to { transform: translateX(0); }
+        }
+
+        .client-carousel:hover .client-track {
+            animation-play-state: paused;
+        }
+
+        @media (max-width: 767px) {
+            .client-showcase {
+                padding-top: 58px !important;
+                padding-bottom: 58px !important;
+            }
+
+            .client-showcase::before,
+            .client-showcase::after {
+                width: 34px;
+            }
+
+            .client-carousel {
+                gap: 12px;
+                margin-top: 26px;
+            }
+
+            .client-track {
+                gap: 10px;
+            }
+
+            .client-logo-card {
+                width: 142px;
+                height: 78px;
+                flex-basis: 142px;
+                padding: 9px 12px;
+                border-radius: 15px;
+            }
+
+            .client-logo-card img {
+                width: 112px;
+                height: 54px;
+            }
+
+            .client-track.left {
+                animation-duration: 34s;
+            }
+
+            .client-track.right {
+                animation-duration: 38s;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .client-track.left,
+            .client-track.right {
+                animation: none;
+            }
+        }
+
     </style>
 </head>
 <body class="bg-white text-slate-900 antialiased selection:bg-cyan-500 selection:text-white">
@@ -249,113 +336,74 @@
         </div>
     </section>
 
-    <section class="py-20 border-t border-b border-slate-100 bg-slate-50/80">
-        <div class="max-w-7xl mx-auto px-6 text-center">
-            <h2 class="text-xs uppercase tracking-[0.25em] text-slate-500 font-semibold mb-12">TRUSTED BY INDUSTRY LEADERS & INNOVATIVE BRANDS</h2>
-           <div class="client-logo-slider">
-    <div class="client-logo-track">
+    <section class="client-showcase py-16 sm:py-20 border-t border-b border-slate-100">
+        <div class="max-w-7xl mx-auto px-5 sm:px-6">
+            <div class="text-center">
+                <span class="inline-flex items-center gap-2 text-[10px] sm:text-xs uppercase tracking-[0.28em] text-cyan-600 font-bold">
+                    <span class="w-5 h-px bg-cyan-500"></span>
+                    Trusted by
+                    <span class="w-5 h-px bg-cyan-500"></span>
+                </span>
+                <h2 class="mt-3 text-sm sm:text-base uppercase tracking-[0.18em] text-slate-500 font-semibold">
+                    Industry Leaders & Innovative Brands
+                </h2>
+            </div>
 
-        <div class="client-logo-item">
-            <img src="./ram.png" alt="RAM Hospital">
-        </div>
+            <div class="client-carousel" aria-label="Client logos">
 
-        <div class="client-logo-item">
-            <img src="./central.png" alt="Central Chiangmai">
-        </div>
+                <!-- Row 1: moves left -->
+                <div class="client-row">
+                    <div class="client-track left">
 
-        <div class="client-logo-item">
-            <img src="./major.png" alt="Major">
-        </div>
+                        <div class="client-logo-card"><img src="./ram.png" alt="RAM Hospital"></div>
+                        <div class="client-logo-card"><img src="./central.png" alt="Central Chiangmai"></div>
+                        <div class="client-logo-card"><img src="./major.png" alt="Major"></div>
+                        <div class="client-logo-card"><img src="./im.png" alt="IM-MEE"></div>
+                        <div class="client-logo-card"><img src="./noodle.png" alt="Noodle"></div>
+                        <div class="client-logo-card"><img src="./kk.png" alt="KK"></div>
+                        <div class="client-logo-card"><img src="./wella.png" alt="Wella"></div>
+                        <div class="client-logo-card"><img src="./pachara.png" alt="Pachara"></div>
 
-        <div class="client-logo-item">
-            <img src="./im.png" alt="IM-MEE">
-        </div>
+                        <!-- Duplicate for seamless loop -->
+                        <div class="client-logo-card"><img src="./ram.png" alt="RAM Hospital"></div>
+                        <div class="client-logo-card"><img src="./central.png" alt="Central Chiangmai"></div>
+                        <div class="client-logo-card"><img src="./major.png" alt="Major"></div>
+                        <div class="client-logo-card"><img src="./im.png" alt="IM-MEE"></div>
+                        <div class="client-logo-card"><img src="./noodle.png" alt="Noodle"></div>
+                        <div class="client-logo-card"><img src="./kk.png" alt="KK"></div>
+                        <div class="client-logo-card"><img src="./wella.png" alt="Wella"></div>
+                        <div class="client-logo-card"><img src="./pachara.png" alt="Pachara"></div>
 
-        <div class="client-logo-item">
-            <img src="./noodle.png" alt="Noodle">
-        </div>
+                    </div>
+                </div>
 
-        <div class="client-logo-item">
-            <img src="./kk.png" alt="KK">
-        </div>
+                <!-- Row 2: moves right -->
+                <div class="client-row">
+                    <div class="client-track right">
 
-        <div class="client-logo-item">
-            <img src="./wella.png" alt="Wella">
-        </div>
+                        <div class="client-logo-card"><img src="./cpn.png" alt="CPN"></div>
+                        <div class="client-logo-card"><img src="./baan.png" alt="Baan"></div>
+                        <div class="client-logo-card"><img src="./ashida.png" alt="Ashida"></div>
+                        <div class="client-logo-card"><img src="./fly.png" alt="Fly in Chiang Mai"></div>
+                        <div class="client-logo-card"><img src="./ram.png" alt="RAM Hospital"></div>
+                        <div class="client-logo-card"><img src="./central.png" alt="Central Chiangmai"></div>
+                        <div class="client-logo-card"><img src="./major.png" alt="Major"></div>
+                        <div class="client-logo-card"><img src="./im.png" alt="IM-MEE"></div>
 
-        <div class="client-logo-item">
-            <img src="./pachara.png" alt="Pachara">
-        </div>
+                        <!-- Duplicate for seamless loop -->
+                        <div class="client-logo-card"><img src="./cpn.png" alt="CPN"></div>
+                        <div class="client-logo-card"><img src="./baan.png" alt="Baan"></div>
+                        <div class="client-logo-card"><img src="./ashida.png" alt="Ashida"></div>
+                        <div class="client-logo-card"><img src="./fly.png" alt="Fly in Chiang Mai"></div>
+                        <div class="client-logo-card"><img src="./ram.png" alt="RAM Hospital"></div>
+                        <div class="client-logo-card"><img src="./central.png" alt="Central Chiangmai"></div>
+                        <div class="client-logo-card"><img src="./major.png" alt="Major"></div>
+                        <div class="client-logo-card"><img src="./im.png" alt="IM-MEE"></div>
 
-        <div class="client-logo-item">
-            <img src="./cpn.png" alt="CPN">
-        </div>
+                    </div>
+                </div>
 
-        <div class="client-logo-item">
-            <img src="./baan.png" alt="Baan">
-        </div>
-
-        <div class="client-logo-item">
-            <img src="./ashida.png" alt="Ashida">
-        </div>
-
-        <div class="client-logo-item">
-            <img src="./fly.png" alt="Fly">
-        </div>
-
-
-        <!-- LOOP -->
-
-        <div class="client-logo-item">
-            <img src="./ram.png" alt="RAM Hospital">
-        </div>
-
-        <div class="client-logo-item">
-            <img src="./central.png" alt="Central Chiangmai">
-        </div>
-
-        <div class="client-logo-item">
-            <img src="./major.png" alt="Major">
-        </div>
-
-        <div class="client-logo-item">
-            <img src="./im.png" alt="IM-MEE">
-        </div>
-
-        <div class="client-logo-item">
-            <img src="./noodle.png" alt="Noodle">
-        </div>
-
-        <div class="client-logo-item">
-            <img src="./kk.png" alt="KK">
-        </div>
-
-        <div class="client-logo-item">
-            <img src="./wella.png" alt="Wella">
-        </div>
-
-        <div class="client-logo-item">
-            <img src="./pachara.png" alt="Pachara">
-        </div>
-
-        <div class="client-logo-item">
-            <img src="./cpn.png" alt="CPN">
-        </div>
-
-        <div class="client-logo-item">
-            <img src="./baan.png" alt="Baan">
-        </div>
-
-        <div class="client-logo-item">
-            <img src="./ashida.png" alt="Ashida">
-        </div>
-
-        <div class="client-logo-item">
-            <img src="./fly.png" alt="Fly">
-        </div>
-
-    </div>
-</div>
+            </div>
         </div>
     </section>
 
