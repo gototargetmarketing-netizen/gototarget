@@ -45,7 +45,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         body {
-            font-family: 'Inter', 'Prompt', sans-serif;
+            font-family: 'Prompt', 'Inter', sans-serif;
             background-color: #ffffff;
             color: #0f172a;
             overflow-x: hidden;
@@ -88,7 +88,7 @@
             background: #0891b2;
         }
 
-        /* ===== Premium Client Logo Grid ===== */
+        /* ===== Client Logos - Responsive Grid Carousel ===== */
         .client-showcase {
             position: relative;
             overflow: hidden;
@@ -97,29 +97,45 @@
                 #f8fafc;
         }
 
-        .client-carousel-single {
-            margin-top: 42px;
+        .client-carousel {
+            position: relative;
+            margin-top: 36px;
         }
 
-        .client-row {
+        .client-viewport {
+            position: relative;
+            overflow: hidden;
             width: 100%;
         }
 
-        .client-track.single {
+        .client-pages {
+            display: flex;
+            width: 100%;
+            transition: transform .55s cubic-bezier(.22,.61,.36,1);
+            will-change: transform;
+            touch-action: pan-y;
+        }
+
+        .client-page {
+            flex: 0 0 100%;
+            width: 100%;
             display: grid;
             grid-template-columns: repeat(6, minmax(0, 1fr));
-            gap: 34px 28px;
-            width: 100%;
+            grid-template-rows: repeat(2, minmax(105px, auto));
+            column-gap: 18px;
+            row-gap: 22px;
             align-items: center;
+            padding: 8px 34px 12px;
+            box-sizing: border-box;
         }
 
         .client-logo-card {
-            width: 100%;
-            height: 105px;
+            min-width: 0;
+            height: 112px;
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 8px 12px;
+            padding: 4px 8px;
             background: transparent;
             border: none;
             border-radius: 0;
@@ -128,67 +144,179 @@
         }
 
         .client-logo-card:hover {
-            transform: scale(1.06);
+            transform: translateY(-3px) scale(1.025);
         }
 
         .client-logo-card img {
-            width: 165px;
-            height: 78px;
+            width: 100%;
+            max-width: 190px;
+            height: 82px;
             object-fit: contain;
+            object-position: center;
             display: block;
-            filter: none;
+            filter: contrast(1.04) saturate(1.03);
+            image-rendering: auto;
         }
 
-        /* Hide duplicated logos because this is now a clean multi-row presentation */
-        .client-track.single .client-logo-card:nth-child(n+13) {
-            display: none;
+        .client-controls {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 14px;
+            margin-top: 18px;
         }
 
-        @media (max-width: 1024px) {
-            .client-track.single {
-                grid-template-columns: repeat(4, minmax(0, 1fr));
-                gap: 28px 18px;
-            }
+        .client-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 5;
+            width: 40px;
+            height: 40px;
+            border: 0;
+            border-radius: 999px;
+            background: rgba(255,255,255,.92);
+            color: #0891b2;
+            box-shadow: 0 6px 18px rgba(15,23,42,.10);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: .2s ease;
+        }
 
-            .client-logo-card {
-                height: 92px;
-            }
+        .client-arrow:hover {
+            background: #0891b2;
+            color: #fff;
+            transform: translateY(-50%) scale(1.05);
+        }
 
-            .client-logo-card img {
-                width: 145px;
-                height: 70px;
-            }
+        .client-arrow.prev { left: 0; }
+        .client-arrow.next { right: 0; }
+
+        .client-dots {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 8px;
+            margin-top: 14px;
+        }
+
+        .client-dot {
+            width: 8px;
+            height: 8px;
+            padding: 0;
+            border: 0;
+            border-radius: 50%;
+            background: #cbd5e1;
+            cursor: pointer;
+            transition: .25s ease;
+        }
+
+        .client-dot.active {
+            width: 10px;
+            height: 10px;
+            background: #0891b2;
+        }
+
+        /* Thai text in this section: larger, darker and easier to read */
+        .client-showcase .client-thai-title {
+            color: #111827;
+            font-family: 'Prompt', 'Inter', sans-serif;
+            font-size: 17px;
+            line-height: 1.65;
+            font-weight: 500;
+            letter-spacing: .01em;
+        }
+
+        .client-showcase .client-en-title {
+            color: #334155;
+            font-family: 'Inter', 'Prompt', sans-serif;
         }
 
         @media (max-width: 767px) {
             .client-showcase {
                 padding-top: 52px !important;
-                padding-bottom: 52px !important;
+                padding-bottom: 48px !important;
             }
 
-            .client-carousel-single {
-                margin-top: 32px;
+            .client-carousel {
+                margin-top: 28px;
             }
 
-            .client-track.single {
+            .client-page {
                 grid-template-columns: repeat(4, minmax(0, 1fr));
-                gap: 28px 10px;
+                grid-template-rows: repeat(3, minmax(76px, auto));
+                column-gap: 8px;
+                row-gap: 14px;
+                padding: 4px 22px 8px;
             }
 
             .client-logo-card {
                 height: 78px;
-                padding: 4px 2px;
+                padding: 2px 3px;
             }
 
             .client-logo-card img {
-                width: 92px;
-                height: 58px;
+                width: 100%;
+                max-width: 125px;
+                height: 62px;
             }
 
-            .client-logo-card:hover {
-                transform: none;
+            .client-arrow {
+                width: 34px;
+                height: 34px;
+                font-size: 13px;
+                background: rgba(255,255,255,.96);
+            }
+
+            .client-arrow.prev { left: -2px; }
+            .client-arrow.next { right: -2px; }
+
+            .client-showcase .client-thai-title {
+                font-size: 17px;
+                line-height: 1.55;
+                font-weight: 500;
+                max-width: 340px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .client-showcase .client-en-title {
+                font-size: 14px;
+                letter-spacing: .12em;
+            }
+
+            .client-controls {
+                margin-top: 12px;
             }
         }
+
+        @media (min-width: 768px) and (max-width: 1100px) {
+            .client-page {
+                grid-template-columns: repeat(4, minmax(0, 1fr));
+                grid-template-rows: repeat(3, minmax(100px, auto));
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .client-pages {
+                transition: none;
+            }
+        }
+
+        /* Thai readability across the light sections */
+        section:not(#contact) p,
+        section:not(#contact) .text-slate-600,
+        section:not(#contact) .text-slate-500,
+        section:not(#contact) .text-slate-700 {
+            font-family: 'Prompt', 'Inter', sans-serif;
+        }
+
+        section:not(#contact) p {
+            color: #111827;
+        }
+
     </style>
 </head>
 <body class="bg-white text-slate-900 antialiased selection:bg-cyan-500 selection:text-white">
@@ -295,14 +423,26 @@
                     Trusted by
                     <span class="w-5 h-px bg-cyan-500"></span>
                 </span>
-                <h2 class="mt-3 text-sm sm:text-base uppercase tracking-[0.18em] text-slate-500 font-semibold">
+
+                <h2 class="client-en-title mt-3 text-sm sm:text-base uppercase tracking-[0.18em] font-semibold">
                     Industry Leaders & Innovative Brands
                 </h2>
+
+                <p class="client-thai-title mt-2">
+                    ขอบคุณลูกค้า ที่วางใจให้เรา ดูแลแบรนด์ของคุณ
+                </p>
             </div>
 
-            <div class="client-carousel client-carousel-single" aria-label="Client logos">
-                <div class="client-row">
-                    <div class="client-track single">
+            <div class="client-carousel" aria-label="Client logos">
+                <button class="client-arrow prev" id="client-prev" type="button" aria-label="Previous clients">
+                    <i class="fa-solid fa-chevron-left"></i>
+                </button>
+
+                <div class="client-viewport" id="client-viewport">
+                    <div class="client-pages" id="client-pages">
+
+                        <!-- Page content is generated from these client logos.
+                             12 logos = 1 page: 6x2 on desktop / 4x3 on mobile. -->
 
                         <div class="client-logo-card"><img src="./ram.png" alt="RAM Hospital"></div>
                         <div class="client-logo-card"><img src="./central.png" alt="Central Chiangmai"></div>
@@ -317,8 +457,21 @@
                         <div class="client-logo-card"><img src="./ashida.png" alt="Ashida"></div>
                         <div class="client-logo-card"><img src="./fly.png" alt="Fly in Chiang Mai"></div>
 
+                        <!-- เพิ่ม Logo ใหม่ตรงนี้ได้เลย
+                             เช่น:
+                             <div class="client-logo-card">
+                                 <img src="./new-logo.png" alt="New Client">
+                             </div>
+                        -->
+
                     </div>
                 </div>
+
+                <button class="client-arrow next" id="client-next" type="button" aria-label="Next clients">
+                    <i class="fa-solid fa-chevron-right"></i>
+                </button>
+
+                <div class="client-dots" id="client-dots" aria-label="Client logo pages"></div>
             </div>
         </div>
     </section>
@@ -807,6 +960,111 @@
     </footer>
 
     <script>
+        // ===== Client Logo Carousel =====
+        (() => {
+            const pages = document.getElementById('client-pages');
+            const viewport = document.getElementById('client-viewport');
+            const dots = document.getElementById('client-dots');
+            const prev = document.getElementById('client-prev');
+            const next = document.getElementById('client-next');
+
+            if (!pages || !viewport || !dots || !prev || !next) return;
+
+            const logos = Array.from(pages.querySelectorAll('.client-logo-card'));
+            const perPage = 12;
+            let current = 0;
+            let startX = 0;
+            let deltaX = 0;
+            let autoTimer;
+
+            // Build pages: 12 logos per page.
+            pages.innerHTML = '';
+            for (let i = 0; i < logos.length; i += perPage) {
+                const page = document.createElement('div');
+                page.className = 'client-page';
+                logos.slice(i, i + perPage).forEach(logo => page.appendChild(logo));
+                pages.appendChild(page);
+            }
+
+            const pageCount = pages.children.length;
+
+            if (pageCount <= 1) {
+                prev.style.display = 'none';
+                next.style.display = 'none';
+                dots.style.display = 'none';
+            }
+
+            for (let i = 0; i < pageCount; i++) {
+                const dot = document.createElement('button');
+                dot.type = 'button';
+                dot.className = 'client-dot' + (i === 0 ? ' active' : '');
+                dot.setAttribute('aria-label', `Go to client page ${i + 1}`);
+                dot.addEventListener('click', () => goTo(i));
+                dots.appendChild(dot);
+            }
+
+            function goTo(index) {
+                current = (index + pageCount) % pageCount;
+                pages.style.transform = `translateX(-${current * 100}%)`;
+
+                Array.from(dots.children).forEach((dot, i) => {
+                    dot.classList.toggle('active', i === current);
+                });
+            }
+
+            prev.addEventListener('click', () => goTo(current - 1));
+            next.addEventListener('click', () => goTo(current + 1));
+
+            // Swipe left/right on mobile and trackpad.
+            viewport.addEventListener('touchstart', (e) => {
+                startX = e.touches[0].clientX;
+                deltaX = 0;
+            }, { passive: true });
+
+            viewport.addEventListener('touchmove', (e) => {
+                deltaX = e.touches[0].clientX - startX;
+            }, { passive: true });
+
+            viewport.addEventListener('touchend', () => {
+                if (Math.abs(deltaX) > 45) {
+                    goTo(deltaX < 0 ? current + 1 : current - 1);
+                    restartAuto();
+                }
+                deltaX = 0;
+            }, { passive: true });
+
+            // Mouse drag on desktop.
+            let mouseDown = false;
+            let mouseStart = 0;
+
+            viewport.addEventListener('mousedown', (e) => {
+                mouseDown = true;
+                mouseStart = e.clientX;
+            });
+
+            window.addEventListener('mouseup', (e) => {
+                if (!mouseDown) return;
+                const move = e.clientX - mouseStart;
+                if (Math.abs(move) > 55) {
+                    goTo(move < 0 ? current + 1 : current - 1);
+                    restartAuto();
+                }
+                mouseDown = false;
+            });
+
+            function startAuto() {
+                if (pageCount <= 1) return;
+                autoTimer = setInterval(() => goTo(current + 1), 6500);
+            }
+
+            function restartAuto() {
+                clearInterval(autoTimer);
+                startAuto();
+            }
+
+            startAuto();
+        })();
+
         // Toggle mobile menu
         const mobileMenuBtn = document.getElementById('mobile-menu-btn');
         const mobileMenu = document.getElementById('mobile-menu');
