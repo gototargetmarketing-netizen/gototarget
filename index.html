@@ -329,6 +329,68 @@
             color: #111827;
         }
 
+/* Marketing Platforms */
+.marketing-platforms-logos {
+    width: 100%;
+    max-width: 700px;
+    margin: 32px auto 0;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    align-items: start;
+    justify-items: center;
+    gap: 12px;
+}
+
+.platform-logo {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 8px;
+}
+
+.platform-logo img {
+    width: 52px;
+    height: 52px;
+    object-fit: contain;
+    display: block;
+}
+
+.platform-logo span {
+    font-size: 13px;
+    font-weight: 600;
+    color: #334155;
+    text-align: center;
+    white-space: nowrap;
+}
+
+/* Mobile */
+@media (max-width: 767px) {
+
+    .marketing-platforms-logos {
+        width: calc(100% - 40px);
+        max-width: 390px;
+        margin-top: 28px;
+        grid-template-columns: repeat(5, 1fr);
+        gap: 4px;
+    }
+
+    .platform-logo {
+        gap: 5px;
+    }
+
+    .platform-logo img {
+        width: 42px;
+        height: 42px;
+    }
+
+    .platform-logo span {
+        font-size: 10px;
+        font-weight: 600;
+    }
+}
+        
     </style>
 </head>
 <body class="bg-white text-slate-900 antialiased selection:bg-cyan-500 selection:text-white">
@@ -433,59 +495,39 @@
             </p>
         </div>
 
-     <div class="grid grid-cols-3 max-w-md mx-auto mt-8 gap-y-8">
-
+   <div class="marketing-platforms-logos">
+    
     <!-- Facebook -->
-    <div class="flex flex-col items-center gap-2">
-        <img src="/facebook.png"
-             alt="Facebook"
-             class="w-14 h-14 sm:w-16 sm:h-16 object-contain">
-        <span class="text-xs sm:text-sm font-semibold text-slate-700">
-            Facebook
-        </span>
+    <div class="platform-logo">
+        <img src="/facebook.png" alt="Facebook">
+        <span>Facebook</span>
     </div>
 
     <!-- Instagram -->
-    <div class="flex flex-col items-center gap-2">
-        <img src="/instagram.png"
-             alt="Instagram"
-             class="w-14 h-14 sm:w-16 sm:h-16 object-contain">
-        <span class="text-xs sm:text-sm font-semibold text-slate-700">
-            Instagram
-        </span>
+    <div class="platform-logo">
+        <img src="/instagram.png" alt="Instagram">
+        <span>Instagram</span>
     </div>
 
     <!-- TikTok -->
-    <div class="flex flex-col items-center gap-2">
-        <img src="/tiktok.png"
-             alt="TikTok"
-             class="w-14 h-14 sm:w-16 sm:h-16 object-contain">
-        <span class="text-xs sm:text-sm font-semibold text-slate-700">
-            TikTok
-        </span>
+    <div class="platform-logo">
+        <img src="/tiktok.png" alt="TikTok">
+        <span>TikTok</span>
     </div>
 
     <!-- Google -->
-    <div class="col-start-1 flex flex-col items-center gap-2">
-        <img src="/google.png"
-             alt="Google"
-             class="w-14 h-14 sm:w-16 sm:h-16 object-contain">
-        <span class="text-xs sm:text-sm font-semibold text-slate-700">
-            Google
-        </span>
+    <div class="platform-logo">
+        <img src="/google.png" alt="Google">
+        <span>Google</span>
     </div>
 
     <!-- YouTube -->
-    <div class="col-start-2 flex flex-col items-center gap-2">
-        <img src="/youtube.png"
-             alt="YouTube"
-             class="w-14 h-14 sm:w-16 sm:h-16 object-contain">
-        <span class="text-xs sm:text-sm font-semibold text-slate-700">
-            YouTube
-        </span>
+    <div class="platform-logo">
+        <img src="/youtube.png" alt="YouTube">
+        <span>YouTube</span>
     </div>
 
-</div>  
+</div>
            <!-- Video Showcase -->
 <div class="mt-20 relative rounded-3xl overflow-hidden glass-card p-2 sm:p-4 border border-slate-200 shadow-2xl">
   <video
