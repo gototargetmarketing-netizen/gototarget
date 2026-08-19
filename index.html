@@ -459,7 +459,7 @@
 }
 
 /* =========================
-   TARGET ACTIVATION INTRO
+   TARGET ACTIVATION V2
 ========================= */
 
 #target-intro {
@@ -471,122 +471,178 @@
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  animation: targetIntroOut 0.6s ease 1.8s forwards;
+  animation: introFadeOut 0.7s ease 2.1s forwards;
 }
 
-.target-logo {
+/* กลุ่ม Logo */
+.target-logo-wrap {
   position: relative;
-  width: 150px;
-  height: 150px;
+  width: 180px;
+  height: 180px;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.target-logo-text {
+/* Logo บริษัท */
+.target-company-logo {
   position: relative;
-  z-index: 5;
-  font-size: 18px;
-  font-weight: 800;
-  letter-spacing: 2px;
-  color: #111827;
-  animation: targetTextIn 0.6s ease forwards;
+  z-index: 10;
+  width: 120px;
+  height: auto;
+  opacity: 0;
+  transform: scale(0.75);
+  animation: logoAppear 0.7s cubic-bezier(.2,.8,.2,1) 0.25s forwards;
 }
 
-.target-logo-text span {
-  color: #08a6b5;
-}
-
+/* วง Target */
 .target-ring {
   position: absolute;
-  border: 2px solid rgba(0, 174, 190, 0.45);
   border-radius: 50%;
-  width: 65px;
-  height: 65px;
-  animation: targetRing 1.5s ease-out forwards;
+  border: 1px solid rgba(0, 174, 190, 0.35);
+  opacity: 0;
+  animation: ringExpand 1.6s ease-out forwards;
 }
 
-.target-ring:nth-child(2) {
-  width: 100px;
-  height: 100px;
-  animation-delay: 0.15s;
-}
-
-.target-ring:nth-child(3) {
-  width: 140px;
-  height: 140px;
-  animation-delay: 0.3s;
-}
-
-.target-dot {
-  position: absolute;
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: linear-gradient(135deg, #00a88f, #2476e8);
-  box-shadow: 0 0 15px rgba(0, 150, 220, 0.4);
-  animation: targetDot 1.2s ease-in-out forwards;
-}
-
-.target-dot:nth-child(4) {
-  top: 10px;
-  left: 20px;
-}
-
-.target-dot:nth-child(5) {
-  top: 30px;
-  right: 5px;
-  animation-delay: 0.15s;
-}
-
-.target-dot:nth-child(6) {
-  bottom: 15px;
-  left: 25px;
+.target-ring-1 {
+  width: 85px;
+  height: 85px;
   animation-delay: 0.25s;
 }
 
-.target-dot:nth-child(7) {
-  bottom: 25px;
-  right: 20px;
+.target-ring-2 {
+  width: 125px;
+  height: 125px;
+  animation-delay: 0.4s;
+}
+
+.target-ring-3 {
+  width: 165px;
+  height: 165px;
+  animation-delay: 0.55s;
+}
+
+/* จุด Digital */
+.target-point {
+  position: absolute;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #00a88f, #2476e8);
+  box-shadow: 0 0 14px rgba(20, 150, 220, 0.45);
+  opacity: 0;
+  animation: pointToTarget 1.3s ease-in-out forwards;
+}
+
+.target-point-1 {
+  top: 5px;
+  left: 50%;
+  animation-delay: 0.2s;
+}
+
+.target-point-2 {
+  right: 10px;
+  top: 55px;
   animation-delay: 0.35s;
 }
 
-@keyframes targetRing {
+.target-point-3 {
+  right: 25px;
+  bottom: 20px;
+  animation-delay: 0.5s;
+}
+
+.target-point-4 {
+  left: 20px;
+  bottom: 30px;
+  animation-delay: 0.65s;
+}
+
+.target-point-5 {
+  left: 5px;
+  top: 55px;
+  animation-delay: 0.8s;
+}
+
+/* จุดกลาง */
+.target-center {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #08a6b5;
+  box-shadow:
+    0 0 0 5px rgba(8,166,181,0.08),
+    0 0 25px rgba(8,166,181,0.5);
+  opacity: 0;
+  animation: centerPulse 0.8s ease 1.05s forwards;
+}
+
+/* =========================
+   ANIMATION
+========================= */
+
+@keyframes logoAppear {
   0% {
-    transform: scale(0.2);
     opacity: 0;
+    transform: scale(0.75);
+  }
+
+  60% {
+    opacity: 1;
+    transform: scale(1.06);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes ringExpand {
+  0% {
+    transform: scale(0.35);
+    opacity: 0;
+  }
+
+  35% {
+    opacity: 1;
+  }
+
+  100% {
+    transform: scale(1.15);
+    opacity: 0;
+  }
+}
+
+@keyframes pointToTarget {
+  0% {
+    opacity: 0;
+    transform: translate(0, 0) scale(1);
+  }
+
+  25% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+    transform: translate(
+      calc(50% - 50px),
+      calc(50% - 50px)
+    ) scale(0.2);
+  }
+}
+
+@keyframes centerPulse {
+  0% {
+    opacity: 0;
+    transform: scale(0.3);
   }
 
   50% {
     opacity: 1;
-  }
-
-  100% {
-    transform: scale(1);
-    opacity: 0;
-  }
-}
-
-@keyframes targetDot {
-  0% {
-    transform: translate(0, 0) scale(1);
-    opacity: 0;
-  }
-
-  40% {
-    opacity: 1;
-  }
-
-  100% {
-    transform: translate(60px, 50px) scale(0);
-    opacity: 0;
-  }
-}
-
-@keyframes targetTextIn {
-  0% {
-    opacity: 0;
-    transform: scale(0.8);
+    transform: scale(1.5);
   }
 
   100% {
@@ -595,11 +651,52 @@
   }
 }
 
-@keyframes targetIntroOut {
-  to {
+@keyframes introFadeOut {
+  0% {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  100% {
     opacity: 0;
     visibility: hidden;
     pointer-events: none;
+  }
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 767px) {
+
+  .target-logo-wrap {
+    width: 145px;
+    height: 145px;
+  }
+
+  .target-company-logo {
+    width: 100px;
+  }
+
+  .target-ring-1 {
+    width: 70px;
+    height: 70px;
+  }
+
+  .target-ring-2 {
+    width: 100px;
+    height: 100px;
+  }
+
+  .target-ring-3 {
+    width: 135px;
+    height: 135px;
+  }
+
+  .target-point {
+    width: 6px;
+    height: 6px;
   }
 }
 
@@ -1500,23 +1597,32 @@ function toggleFloatingSound() {
 >
     💬 ติดต่อเรา
 </a>
-<!-- Target Activation Intro -->
+<!-- Target Activation V2 -->
 <div id="target-intro">
 
-  <div class="target-logo">
+  <div class="target-logo-wrap">
 
-    <div class="target-ring"></div>
-    <div class="target-ring"></div>
-    <div class="target-ring"></div>
+    <!-- Target Rings -->
+    <div class="target-ring target-ring-1"></div>
+    <div class="target-ring target-ring-2"></div>
+    <div class="target-ring target-ring-3"></div>
 
-    <div class="target-dot"></div>
-    <div class="target-dot"></div>
-    <div class="target-dot"></div>
-    <div class="target-dot"></div>
+    <!-- Digital Points -->
+    <div class="target-point target-point-1"></div>
+    <div class="target-point target-point-2"></div>
+    <div class="target-point target-point-3"></div>
+    <div class="target-point target-point-4"></div>
+    <div class="target-point target-point-5"></div>
 
-    <div class="target-logo-text">
-      GO TO <span>TARGET</span>
-    </div>
+    <!-- Center -->
+    <div class="target-center"></div>
+
+    <!-- Company Logo -->
+    <img
+      src="/logo.png"
+      alt="GO TO TARGET"
+      class="target-company-logo"
+    >
 
   </div>
 
