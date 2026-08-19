@@ -390,7 +390,42 @@
         font-weight: 600;
     }
 }
-        
+        /* Floating Sound Button */
+.floating-sound-button {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    z-index: 9999;
+    
+    background: linear-gradient(135deg, #10b981, #2563eb);
+    color: white;
+    border: none;
+    border-radius: 999px;
+    
+    padding: 12px 20px;
+    font-size: 15px;
+    font-weight: 600;
+    
+    cursor: pointer;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.18);
+    
+    transition: all 0.3s ease;
+}
+
+.floating-sound-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.25);
+}
+
+/* มือถือ */
+@media (max-width: 767px) {
+    .floating-sound-button {
+        right: 15px;
+        bottom: 20px;
+        padding: 10px 16px;
+        font-size: 14px;
+    }
+}
     </style>
 </head>
 <body class="bg-white text-slate-900 antialiased selection:bg-cyan-500 selection:text-white">
@@ -1237,6 +1272,31 @@
                 navbar.classList.remove('shadow-md', 'border-slate-300');
             }
         });
+
+function toggleFloatingSound() {
+    const video = document.querySelector('video');
+    const button = document.getElementById('floatingSoundButton');
+
+    if (!video) return;
+
+    if (video.muted) {
+        video.muted = false;
+        button.innerHTML = '🔊 ปิดเสียง';
+    } else {
+        video.muted = true;
+        button.innerHTML = '🔇 ฟังเพลง';
+    }
+}
+        
     </script>
+<button
+    id="floatingSoundButton"
+    onclick="toggleFloatingSound()"
+    class="floating-sound-button"
+>
+    🔇 ฟังเพลง
+</button>
+
+    
 </body>
 </html>
