@@ -699,7 +699,137 @@
     height: 6px;
   }
 }
+/* =========================
+   FLOATING CONTACT
+========================= */
 
+.floating-contact {
+  position: fixed;
+  right: 25px;
+  bottom: 25px;
+  z-index: 9998;
+}
+
+.floating-contact-button {
+  border: none;
+  background: linear-gradient(135deg, #00a88f, #2476e8);
+  color: white;
+  padding: 14px 24px;
+  border-radius: 999px;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.18);
+  transition: 0.25s ease;
+}
+
+.floating-contact-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.22);
+}
+
+/* เมนู */
+.contact-menu {
+  position: absolute;
+  right: 0;
+  bottom: 65px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+
+  transition: 0.25s ease;
+}
+
+.contact-menu.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+/* ตัวเลือก */
+.contact-option {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  min-width: 150px;
+  padding: 12px 18px;
+
+  background: white;
+  color: #172033;
+
+  border-radius: 999px;
+  text-decoration: none;
+
+  font-size: 14px;
+  font-weight: 700;
+
+  box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+
+  transition: 0.2s ease;
+}
+
+.contact-option:hover {
+  transform: translateX(-3px);
+}
+
+/* Facebook */
+.facebook-option span {
+  width: 28px;
+  height: 28px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: #1877f2;
+  color: white;
+
+  font-size: 18px;
+  font-weight: 800;
+}
+
+/* โทรศัพท์ */
+.phone-option span {
+  width: 28px;
+  height: 28px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: #00a88f;
+  color: white;
+
+  font-size: 16px;
+}
+
+/* มือถือ */
+@media (max-width: 767px) {
+
+  .floating-contact {
+    right: 15px;
+    bottom: 20px;
+  }
+
+  .floating-contact-button {
+    padding: 13px 20px;
+    font-size: 15px;
+  }
+
+  .contact-menu {
+    bottom: 60px;
+  }
+}
         
     </style>
 </head>
@@ -1586,17 +1716,46 @@ function toggleFloatingSound() {
         button.innerHTML = '🔇 ฟังเพลง';
     }
 }
+
+function toggleContactMenu() {
+  const menu = document.getElementById('contactMenu');
+  menu.classList.toggle('show');
+}
         
     </script>
     <!-- ปุ่ม Facebook Messenger -->
-<a
-    href="https://www.facebook.com/Gototarget.Official?locale=th_TH"
-    target="_blank"
-    rel="noopener noreferrer"
-    class="floating-chat-button"
->
+<div class="floating-contact">
+
+  <button
+    class="floating-contact-button"
+    onclick="toggleContactMenu()"
+  >
     💬 ติดต่อเรา
-</a>
+  </button>
+
+  <div id="contactMenu" class="contact-menu">
+
+    <a
+      href="https://www.facebook.com/Gototarget.Official"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="contact-option"
+    >
+      <span class="facebook-icon">f</span>
+      Facebook
+    </a>
+
+    <a
+      href="tel:0979191941"
+      class="contact-option"
+    >
+      <span class="phone-icon">☎</span>
+      โทรหาเรา
+    </a>
+
+  </div>
+
+</div>
 <!-- Target Activation V2 -->
 <div id="target-intro">
 
