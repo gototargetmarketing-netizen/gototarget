@@ -390,7 +390,26 @@
         font-weight: 600;
     }
 }
-        
+
+
+
+        .platform-heading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    color: #0891b2;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.28em;
+}
+
+.platform-dot {
+    width: 7px;
+    height: 7px;
+    background: #0891b2;
+    border-radius: 50%;
+}
     </style>
 </head>
 <body class="bg-white text-slate-900 antialiased selection:bg-cyan-500 selection:text-white">
@@ -480,9 +499,11 @@
     <div class="max-w-7xl mx-auto px-5 sm:px-6">
         <div class="text-center mb-10">
             <span class="inline-flex items-center gap-2 text-xs sm:text-sm uppercase tracking-[0.28em] text-cyan-600 font-bold">
-                <span class="w-2 h-2 rounded-full bg-cyan-500"></span>
-                MARKETING PLATFORMS
-            </span>
+               <div class="platform-heading">
+    <span class="platform-dot"></span>
+    <span>MARKETING PLATFORMS</span>
+    <span class="platform-dot"></span>
+</div>
 
             <h2 class="mt-4 text-2xl sm:text-3xl font-bold text-slate-900">
                 REACH YOUR AUDIENCE
