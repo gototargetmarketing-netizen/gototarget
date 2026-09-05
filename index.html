@@ -3,1807 +3,912 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GO TO TARGET | Digital Marketing Agency</title>
+    <title>แบบฟอร์มประเมินความพึงพอใจ - ครัวคำหวาน สาขา สันผีเสื้อ</title>
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <script><!DOCTYPE html>
-<html lang="th" class="scroll-smooth">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GO TO TARGET | Digital Agency</title>
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Prompt & Noto Sans Thai -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&family=Sarabun:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
     <script>
         tailwind.config = {
-            darkMode: 'class',
             theme: {
                 extend: {
                     colors: {
-                        light: {
-                            50: '#fcfcfd',
-                            100: '#f4f4f7',
-                            200: '#e5e5ec',
-                            300: '#d1d1dc',
-                        },
-                        dark: {
-                            900: '#0f172a',
-                            800: '#1e293b',
-                            700: '#334155',
-                        },
-                        brand: {
-                            mint: '#059669',
-                            teal: '#0891b2',
-                            cyan: '#2563eb',
-                            accent: '#0284c7'
+                        khamwan: {
+                            gold: '#D4A017',
+                            amber: '#E5A93C',
+                            darkGold: '#B3810E',
+                            brown: '#3A2010',
+                            deepBrown: '#231208',
+                            cream: '#FAF6F0',
+                            warmGray: '#F5F2EC',
+                            accent: '#C84B31'
                         }
                     },
                     fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
+                        sans: ['Prompt', 'Sarabun', 'sans-serif'],
                     }
                 }
             }
         }
     </script>
-    <!-- Google Fonts Inter & Prompt for Thai -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Prompt:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <!-- FontAwesome Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         body {
-            font-family: 'Prompt', 'Inter', sans-serif;
-            background-color: #ffffff;
-            color: #0f172a;
-            overflow-x: hidden;
+            font-family: 'Prompt', sans-serif;
+            background-color: #FAF6F0;
+            color: #3A2010;
         }
-        .gradient-text {
-            background: linear-gradient(135deg, #059669 0%, #0891b2 50%, #2563eb 100%);
+        .luxury-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(212, 160, 23, 0.2);
+            box-shadow: 0 10px 30px -5px rgba(58, 32, 16, 0.05);
+        }
+        .gold-gradient-text {
+            background: linear-gradient(135deg, #B3810E 0%, #E5A93C 50%, #946800 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
-        .gradient-bg {
-            background: linear-gradient(135deg, #059669 0%, #0891b2 50%, #2563eb 100%);
+        .gold-btn-gradient {
+            background: linear-gradient(135deg, #E5A93C 0%, #D4A017 50%, #B3810E 100%);
         }
-        .glass-nav {
-            background: rgba(255, 255, 255, 0.85);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
+        .gold-btn-gradient:hover {
+            background: linear-gradient(135deg, #F0B84D 0%, #E5A93C 50%, #C59013 100%);
         }
-        .glass-card {
-            background: rgba(248, 250, 252, 0.8);
-            backdrop-filter: blur(12px);
-            border: 1px solid rgba(0, 0, 0, 0.06);
-            box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.03);
+        .custom-radio:checked + label {
+            background-color: #3A2010;
+            color: #FAF6F0;
+            border-color: #3A2010;
+            box-shadow: 0 4px 12px rgba(58, 32, 16, 0.15);
         }
-        .glass-card:hover {
-            border-color: rgba(8, 145, 178, 0.3);
-            box-shadow: 0 20px 40px -15px rgba(8, 145, 178, 0.08);
+        .custom-yesno-yes:checked + label {
+            background-color: #2e7d32;
+            color: #ffffff;
+            border-color: #2e7d32;
         }
-        /* Custom scrollbar */
-        ::-webkit-scrollbar {
-            width: 8px;
+        .custom-yesno-no:checked + label {
+            background-color: #c62828;
+            color: #ffffff;
+            border-color: #c62828;
         }
-        ::-webkit-scrollbar-track {
-            background: #f8fafc;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #cbd5e1;
-            border-radius: 4px;
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background: #0891b2;
-        }
-
-        /* ===== Client Logos - Responsive Grid Carousel ===== */
-        .client-showcase {
+        /* Custom Ticket Edge */
+        .coupon-ticket {
+            background: #ffffff;
             position: relative;
-            overflow: hidden;
-            background:
-                radial-gradient(circle at 50% 0%, rgba(8,145,178,.045), transparent 42%),
-                #f8fafc;
         }
-
-        .client-carousel {
-            position: relative;
-            margin-top: 36px;
-        }
-
-        .client-viewport {
-            position: relative;
-            overflow: hidden;
-            width: 100%;
-        }
-
-        .client-pages {
-            display: flex;
-            width: 100%;
-            transition: transform .55s cubic-bezier(.22,.61,.36,1);
-            will-change: transform;
-            touch-action: pan-y;
-        }
-
-        .client-page {
-            flex: 0 0 100%;
-            width: 100%;
-            display: grid;
-            grid-template-columns: repeat(6, minmax(0, 1fr));
-            grid-template-rows: repeat(2, minmax(105px, auto));
-            column-gap: 18px;
-            row-gap: 22px;
-            align-items: center;
-            padding: 8px 34px 12px;
-            box-sizing: border-box;
-        }
-
-        .client-logo-card {
-            min-width: 0;
-            height: 112px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 4px 8px;
-            background: transparent;
-            border: none;
-            border-radius: 0;
-            box-shadow: none;
-            transition: transform .25s ease, opacity .25s ease;
-        }
-
-        .client-logo-card:hover {
-            transform: translateY(-3px) scale(1.025);
-        }
-
-        .client-logo-card img {
-            width: 100%;
-            max-width: 190px;
-            height: 82px;
-            object-fit: contain;
-            object-position: center;
-            display: block;
-            filter: contrast(1.04) saturate(1.03);
-            image-rendering: auto;
-        }
-
-        .client-controls {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 14px;
-            margin-top: 18px;
-        }
-
-        .client-arrow {
+        .coupon-ticket::before, .coupon-ticket::after {
+            content: "";
             position: absolute;
             top: 50%;
-            transform: translateY(-50%);
-            z-index: 5;
-            width: 40px;
-            height: 40px;
-            border: 0;
-            border-radius: 999px;
-            background: rgba(255,255,255,.92);
-            color: #0891b2;
-            box-shadow: 0 6px 18px rgba(15,23,42,.10);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            transition: .2s ease;
-        }
-
-        .client-arrow:hover {
-            background: #0891b2;
-            color: #fff;
-            transform: translateY(-50%) scale(1.05);
-        }
-
-        .client-arrow.prev { left: 0; }
-        .client-arrow.next { right: 0; }
-
-        .client-dots {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 8px;
-            margin-top: 14px;
-        }
-
-        .client-dot {
-            width: 8px;
-            height: 8px;
-            padding: 0;
-            border: 0;
+            width: 24px;
+            height: 24px;
+            background-color: #FAF6F0;
             border-radius: 50%;
-            background: #cbd5e1;
-            cursor: pointer;
-            transition: .25s ease;
+            transform: translateY(-50%);
         }
-
-        .client-dot.active {
-            width: 10px;
-            height: 10px;
-            background: #0891b2;
-        }
-
-        /* Thai text in this section: larger, darker and easier to read */
-        .client-showcase .client-thai-title {
-            color: #111827;
-            font-family: 'Prompt', 'Inter', sans-serif;
-            font-size: 17px;
-            line-height: 1.65;
-            font-weight: 500;
-            letter-spacing: .01em;
-        }
-
-        .client-showcase .client-en-title {
-            color: #334155;
-            font-family: 'Inter', 'Prompt', sans-serif;
-        }
-
-        @media (max-width: 767px) {
-            .client-showcase {
-                padding-top: 52px !important;
-                padding-bottom: 48px !important;
-            }
-
-            .client-carousel {
-                margin-top: 28px;
-            }
-
-.client-arrow {
-    display: none !important;
-}
-            
-            .client-page {
-                grid-template-columns: repeat(4, minmax(0, 1fr));
-                grid-template-rows: repeat(3, minmax(76px, auto));
-                column-gap: 8px;
-                row-gap: 14px;
-                padding: 4px 22px 8px;
-            }
-
-            .client-logo-card {
-                height: 78px;
-                padding: 2px 3px;
-            }
-
-            .client-logo-card img {
-                width: 100%;
-                max-width: 125px;
-                height: 62px;
-            }
-
-            .client-arrow {
-                width: 34px;
-                height: 34px;
-                font-size: 13px;
-                background: rgba(255,255,255,.96);
-            }
-
-            .client-arrow.prev { left: -2px; }
-            .client-arrow.next { right: -2px; }
-
-            .client-showcase .client-thai-title {
-                font-size: 17px;
-                line-height: 1.55;
-                font-weight: 500;
-                max-width: 340px;
-                margin-left: auto;
-                margin-right: auto;
-            }
-
-            .client-showcase .client-en-title {
-                font-size: 14px;
-                letter-spacing: .12em;
-            }
-
-            .client-controls {
-                margin-top: 12px;
-            }
-        }
-
-        @media (min-width: 768px) and (max-width: 1100px) {
-            .client-page {
-                grid-template-columns: repeat(4, minmax(0, 1fr));
-                grid-template-rows: repeat(3, minmax(100px, auto));
-            }
-        }
-
-        @media (prefers-reduced-motion: reduce) {
-            .client-pages {
-                transition: none;
-            }
-        }
-
-        /* Thai readability across the light sections */
-        section:not(#contact) p,
-        section:not(#contact) .text-slate-600,
-        section:not(#contact) .text-slate-500,
-        section:not(#contact) .text-slate-700 {
-            font-family: 'Prompt', 'Inter', sans-serif;
-        }
-
-        section:not(#contact) p {
-            color: #111827;
-        }
-
-/* Marketing Platforms */
-.marketing-platforms-logos {
-    width: 100%;
-    max-width: 700px;
-    margin: 32px auto 0;
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    align-items: start;
-    justify-items: center;
-    gap: 12px;
-}
-
-.platform-logo {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
-    gap: 8px;
-}
-
-.platform-logo img {
-    width: 40px;
-    height: 40px;
-    object-fit: contain;
-    display: block;
-}
-
-.platform-logo span {
-    font-size: 13px;
-    font-weight: 600;
-    color: #334155;
-    text-align: center;
-    white-space: nowrap;
-}
-
-/* Mobile */
-@media (max-width: 767px) {
-
-    .marketing-platforms-logos {
-        width: calc(100% - 40px);
-        max-width: 390px;
-        margin-top: 28px;
-        grid-template-columns: repeat(5, 1fr);
-        gap: 4px;
-    }
-
-    .platform-logo {
-        gap: 5px;
-    }
-
-    .platform-logo img {
-        width: 31px;
-        height: 31px;
-    }
-
-    .platform-logo span {
-        font-size: 10px;
-        font-weight: 600;
-    }
-}
-
-
-/* Floating Messenger Button */
-.floating-chat-button {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 12px;
-}
-
-.phone-icon {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    line-height: 1;
-}
-
-/* มือถือ */
-@media (max-width: 767px) {
-    .floating-chat-button {
-        right: 15px;
-        bottom: 20px;
-        padding: 10px 16px;
-        font-size: 14px;
-    }
-}
-.header-social-links {
-    display: flex;
-    align-items: center;
-    gap: 14px;
-}
-
-.header-social-links a {
-    width: 58px;
-    height: 58px;
-    border: 1px solid #dbe3ec;
-    border-radius: 50%;
-    
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    
-    text-decoration: none;
-    color: #475569;
-    background: #ffffff;
-    
-    transition: all 0.25s ease;
-}
-
-.header-social-links a:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
-}
-
-.header-social-links a span {
-    font-weight: 700;
-    font-size: 20px;
-}
-
-.header-social-links a:nth-child(2) span {
-    font-size: 10px;
-}
-
-/* =========================
-   TARGET ACTIVATION V2
-========================= */
-
-#target-intro {
-  position: fixed;
-  inset: 0;
-  z-index: 9999;
-  background: #ffffff;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-  animation: introFadeOut 0.7s ease 2.1s forwards;
-}
-
-/* กลุ่ม Logo */
-.target-logo-wrap {
-  position: relative;
-  width: 180px;
-  height: 180px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-/* Logo บริษัท */
-.target-company-logo {
-  position: relative;
-  z-index: 10;
-  width: 120px;
-  height: auto;
-  opacity: 0;
-  transform: scale(0.75);
-  animation: logoAppear 0.7s cubic-bezier(.2,.8,.2,1) 0.25s forwards;
-}
-
-/* วง Target */
-.target-ring {
-  position: absolute;
-  border-radius: 50%;
-  border: 1px solid rgba(0, 174, 190, 0.35);
-  opacity: 0;
-  animation: ringExpand 1.6s ease-out forwards;
-}
-
-.target-ring-1 {
-  width: 85px;
-  height: 85px;
-  animation-delay: 0.25s;
-}
-
-.target-ring-2 {
-  width: 125px;
-  height: 125px;
-  animation-delay: 0.4s;
-}
-
-.target-ring-3 {
-  width: 165px;
-  height: 165px;
-  animation-delay: 0.55s;
-}
-
-/* จุด Digital */
-.target-point {
-  position: absolute;
-  width: 7px;
-  height: 7px;
-  border-radius: 50%;
-  background: linear-gradient(135deg, #00a88f, #2476e8);
-  box-shadow: 0 0 14px rgba(20, 150, 220, 0.45);
-  opacity: 0;
-  animation: pointToTarget 1.3s ease-in-out forwards;
-}
-
-.target-point-1 {
-  top: 5px;
-  left: 50%;
-  animation-delay: 0.2s;
-}
-
-.target-point-2 {
-  right: 10px;
-  top: 55px;
-  animation-delay: 0.35s;
-}
-
-.target-point-3 {
-  right: 25px;
-  bottom: 20px;
-  animation-delay: 0.5s;
-}
-
-.target-point-4 {
-  left: 20px;
-  bottom: 30px;
-  animation-delay: 0.65s;
-}
-
-.target-point-5 {
-  left: 5px;
-  top: 55px;
-  animation-delay: 0.8s;
-}
-
-/* จุดกลาง */
-.target-center {
-  position: absolute;
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  background: #08a6b5;
-  box-shadow:
-    0 0 0 5px rgba(8,166,181,0.08),
-    0 0 25px rgba(8,166,181,0.5);
-  opacity: 0;
-  animation: centerPulse 0.8s ease 1.05s forwards;
-}
-
-/* =========================
-   ANIMATION
-========================= */
-
-@keyframes logoAppear {
-  0% {
-    opacity: 0;
-    transform: scale(0.75);
-  }
-
-  60% {
-    opacity: 1;
-    transform: scale(1.06);
-  }
-
-  100% {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-
-@keyframes ringExpand {
-  0% {
-    transform: scale(0.35);
-    opacity: 0;
-  }
-
-  35% {
-    opacity: 1;
-  }
-
-  100% {
-    transform: scale(1.15);
-    opacity: 0;
-  }
-}
-
-@keyframes pointToTarget {
-  0% {
-    opacity: 0;
-    transform: translate(0, 0) scale(1);
-  }
-
-  25% {
-    opacity: 1;
-  }
-
-  100% {
-    opacity: 0;
-    transform: translate(
-      calc(50% - 50px),
-      calc(50% - 50px)
-    ) scale(0.2);
-  }
-}
-
-@keyframes centerPulse {
-  0% {
-    opacity: 0;
-    transform: scale(0.3);
-  }
-
-  50% {
-    opacity: 1;
-    transform: scale(1.5);
-  }
-
-  100% {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-
-@keyframes introFadeOut {
-  0% {
-    opacity: 1;
-    visibility: visible;
-  }
-
-  100% {
-    opacity: 0;
-    visibility: hidden;
-    pointer-events: none;
-  }
-}
-
-/* =========================
-   MOBILE
-========================= */
-
-@media (max-width: 767px) {
-
-  .target-logo-wrap {
-    width: 145px;
-    height: 145px;
-  }
-
-  .target-company-logo {
-    width: 100px;
-  }
-
-  .target-ring-1 {
-    width: 70px;
-    height: 70px;
-  }
-
-  .target-ring-2 {
-    width: 100px;
-    height: 100px;
-  }
-
-  .target-ring-3 {
-    width: 135px;
-    height: 135px;
-  }
-
-  .target-point {
-    width: 6px;
-    height: 6px;
-  }
-}
-/* =========================
-   FLOATING CONTACT
-========================= */
-
-.floating-contact {
-  position: fixed;
-  right: 25px;
-  bottom: 25px;
-  z-index: 9998;
-}
-
-.floating-contact-button {
-  border: none;
-  background: linear-gradient(135deg, #00a88f, #2476e8);
-  color: white;
-  padding: 14px 24px;
-  border-radius: 999px;
-  font-size: 16px;
-  font-weight: 700;
-  cursor: pointer;
-  box-shadow: 0 8px 25px rgba(0,0,0,0.18);
-  transition: 0.25s ease;
-}
-
-.floating-contact-button:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 12px 30px rgba(0,0,0,0.22);
-}
-
-/* เมนู */
-.contact-menu {
-  position: absolute;
-  right: 0;
-  bottom: 65px;
-
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-
-  opacity: 0;
-  visibility: hidden;
-  transform: translateY(10px);
-
-  transition: 0.25s ease;
-}
-
-.contact-menu.show {
-  opacity: 1;
-  visibility: visible;
-  transform: translateY(0);
-}
-
-/* ตัวเลือก */
-/* ตัวเลือก Contact */
-.contact-option {
-    width: 300px;
-    height: 64px;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 12px;
-
-    padding: 0 20px;
-
-    background: #ffffff;
-    color: #172033;
-
-    border-radius: 999px;
-    text-decoration: none;
-
-    font-size: 18px;
-    font-weight: 700;
-
-    box-shadow: 0 6px 20px rgba(0,0,0,0.15);
-
-    transition: 0.2s ease;
-    box-sizing: border-box;
-}
-
-.contact-option:hover {
-    transform: translateY(-3px);
-}
-
-/* ไอคอน Facebook */
-.contact-option .contact-icon {
-    width: 32px;
-    height: 32px;
-
-    flex: 0 0 32px;
-
-    object-fit: contain;
-    display: block;
-}
-
-/* ไอคอนโทรศัพท์ */
-.contact-option .phone-icon {
-    width: 32px;
-    height: 32px;
-
-    flex: 0 0 32px;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    font-size: 25px;
-    line-height: 1;
-
-    color: #374151;
-    background: transparent;
-}
-
-/* มือถือ */
-@media (max-width: 767px) {
-
-  .floating-contact {
-    right: 15px;
-    bottom: 20px;
-  }
-
-  .floating-contact-button {
-    padding: 13px 20px;
-    font-size: 15px;
-  }
-
-  .contact-menu {
-    bottom: 60px;
-  }
-        .contact-option {
-        width: 160px;
-        min-width: 160px;
-        padding: 10px 16px;
-        font-size: 14px;
-        gap: 10px;
-    }
-
-    .contact-option span {
-        width: 26px;
-        height: 26px;
-        font-size: 16px;
-    }
-}
-
-        .contact-icon {
-  width: 28px;
-  height: 28px;
-  object-fit: contain;
-  flex-shrink: 0;
-}
-        
+        .coupon-ticket::before { left: -12px; }
+        .coupon-ticket::after { right: -12px; }
     </style>
 </head>
-<body class="bg-white text-slate-900 antialiased selection:bg-cyan-500 selection:text-white">
+<body class="min-h-screen bg-khamwan-cream pb-16 antialiased">
 
-    <header class="fixed top-0 left-0 right-0 z-50 glass-nav border-b border-slate-200 transition-all duration-300" id="navbar">
-        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-            <a href="#" class="flex items-center space-x-1 group">
-                <div class="h-10 w-auto flex items-center group-hover:scale-105 transition-transform">
-    <img src="./logo.png" alt="GO TO TARGET" class="h-16 w-auto object-contain">
-</div>
-                <div class="flex flex-col">
-                    <span class="text-xl font-black tracking-wider uppercase text-slate-900">GO TO <span class="gradient-text">TARGET</span></span>
-                    <span class="text-[9px] tracking-widest text-slate-500 font-medium">DIGITAL AGENCY</span>
-                </div>
-            </a>
-            
-            <nav class="hidden md:flex items-center space-x-8 text-sm font-medium text-slate-600">
-                <a href="#services" class="hover:text-cyan-600 transition-colors">Services</a>
-                <a href="#portfolio" class="hover:text-cyan-600 transition-colors">Work</a>
-                <a href="#case-studies" class="hover:text-cyan-600 transition-colors">Case Studies</a>
-                <a href="#process" class="hover:text-cyan-600 transition-colors">Method</a>
-                <a href="#about" class="hover:text-cyan-600 transition-colors">About</a>
-            </nav>
+    <!-- Top Decorative Bar -->
+    <div class="h-2 w-full gold-btn-gradient"></div>
 
-            <div class="flex items-center space-x-4">
-                <a href="#contact" class="hidden sm:inline-flex items-center justify-center px-6 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider text-white gradient-bg hover:opacity-95 transition-all shadow-lg shadow-cyan-500/20">
-                    สอบถามเพิ่มเติม
-                </a>
-                <button id="mobile-menu-btn" class="md:hidden text-slate-700 hover:text-slate-900 focus:outline-none p-2">
-                    <i class="fa-solid fa-bars text-xl"></i>
-                </button>
-            </div>
+    <!-- Header / Hero Section -->
+    <header class="relative overflow-hidden bg-khamwan-deepBrown text-white pt-10 pb-16 px-4 sm:px-6 shadow-xl">
+        <!-- Background Overlay Image -->
+        <div class="absolute inset-0 opacity-20 bg-cover bg-center pointer-events-none" 
+             style="background-image: url('https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=1200&q=80');">
         </div>
-        <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden md:hidden glass-nav border-b border-slate-200 px-6 py-6 space-y-4 shadow-xl">
-            <a href="#services" class="block text-slate-700 hover:text-cyan-600 font-medium py-1">Services</a>
-            <a href="#portfolio" class="block text-slate-700 hover:text-cyan-600 font-medium py-1">Work</a>
-            <a href="#case-studies" class="block text-slate-700 hover:text-cyan-600 font-medium py-1">Case Studies</a>
-            <a href="#process" class="block text-slate-700 hover:text-cyan-600 font-medium py-1">Method</a>
-            <a href="#contact" class="block text-white font-bold py-2.5 text-center gradient-bg rounded-full mt-4 shadow-lg">Start a Project</a>
+        <div class="absolute inset-0 bg-gradient-to-b from-khamwan-deepBrown/80 via-khamwan-deepBrown/95 to-khamwan-deepBrown"></div>
+
+        <div class="max-w-3xl mx-auto relative z-10 text-center">
+            <!-- Brand Logo Frame -->
+            <div class="inline-flex items-center justify-center p-3 mb-4 bg-white/10 rounded-full backdrop-blur-md border border-khamwan-amber/30">
+                <div class="w-16 h-16 rounded-full bg-amber-400 flex flex-col items-center justify-center text-khamwan-brown font-bold border-2 border-white shadow-inner">
+                    <span class="text-sm leading-tight tracking-wider font-extrabold">คำหวาน</span>
+                    <span class="text-[9px] uppercase tracking-widest font-medium opacity-90">CUISINE</span>
+                </div>
+            </div>
+
+            <h1 class="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight text-amber-200 mb-2">
+                แบบฟอร์มบันทึกประสบการณ์ของลูกค้า
+            </h1>
+            <p class="text-lg sm:text-xl font-medium text-amber-100/90 mb-6">
+                ครัวคำหวาน สาขา สันผีเสื้อ
+            </p>
+            <div class="w-24 h-1 bg-gradient-to-r from-transparent via-khamwan-amber to-transparent mx-auto mb-6"></div>
+
+            <!-- Privilege Highlight Banner -->
+            <div class="bg-gradient-to-r from-khamwan-brown via-amber-950 to-khamwan-brown p-4 sm:p-5 rounded-2xl border border-khamwan-amber/40 shadow-2xl max-w-xl mx-auto text-left relative overflow-hidden">
+                <div class="absolute -right-6 -bottom-6 w-24 h-24 bg-khamwan-amber/10 rounded-full blur-xl"></div>
+                <div class="flex items-center gap-4">
+                    <div class="w-20 h-20 sm:w-24 sm:h-24 rounded-xl overflow-hidden shrink-0 border-2 border-khamwan-amber shadow-md">
+                        <img src="https://images.unsplash.com/photo-1569718212165-3a8278d5f624?auto=format&fit=crop&w=400&q=80" 
+                             alt="ยำเกี๊ยวกรอบ" 
+                             class="w-full h-full object-cover transform hover:scale-110 transition duration-500"
+                             onerror="this.src='https://placehold.co/200x200/D4A017/3A2010?text=ยำเกี๊ยวกรอบ'">
+                    </div>
+                    <div>
+                        <span class="inline-block px-2.5 py-0.5 rounded-full text-xs font-semibold bg-amber-400/20 text-amber-300 border border-amber-400/30 mb-1">
+                            <i class="fa-solid fa-gift mr-1"></i> สิทธิพิเศษสำหรับท่าน
+                        </span>
+                        <h3 class="text-base sm:text-lg font-bold text-white leading-snug">
+                            รับฟรี! <span class="text-amber-300 underline decoration-amber-400 font-extrabold">ยำเกี๊ยวกรอบ</span>
+                        </h3>
+                        <p class="text-xs sm:text-sm text-amber-100/80 mt-1">
+                            เมื่อกรอกแบบสอบถามนี้เสร็จสิ้น รับ e-Voucher ทันทีสำหรับนำมาแลกรับฟรีในโอกาสถัดไป
+                        </p>
+                    </div>
+                </div>
+            </div>
         </div>
     </header>
 
-    <section class="relative min-h-screen flex items-center justify-center pt-28 pb-20 px-6 overflow-hidden bg-gradient-to-b from-slate-50/50 via-white to-white">
-        <!-- Background Glow Elements -->
-        <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-emerald-500/5 rounded-full blur-[140px] pointer-events-none"></div>
-        <div class="absolute bottom-10 right-10 w-[400px] h-[400px] bg-cyan-500/5 rounded-full blur-[120px] pointer-events-none"></div>
-
-        <div class="max-w-6xl mx-auto text-center relative z-10">
-            <div class="inline-flex items-center space-x-2 px-4 py-1.5 rounded-full bg-slate-100 border border-slate-200 text-xs font-semibold tracking-widest uppercase mb-8 text-cyan-700 shadow-sm">
-                <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
-                <span>Digital Marketing Agency</span>
-            </div>
-
-            <h1 class="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-black tracking-tight text-slate-900 uppercase leading-[1.05] mb-8">
-                MAKE YOUR BRAND <br>
-                <span class="gradient-text">IMPOSSIBLE</span> TO IGNORE.
-            </h1>
-
-           <div class="flex flex-wrap justify-center items-center gap-4 sm:gap-8 text-xs sm:text-sm font-semibold tracking-widest text-slate-500 uppercase mb-12">
-    <span>Digital Marketing</span>
-    <span class="w-1.5 h-1.5 rounded-full bg-cyan-500/50 hidden sm:inline-block"></span>
-    <span>Creative</span>
-    <span class="w-1.5 h-1.5 rounded-full bg-cyan-500/50 hidden sm:inline-block"></span>
-    <span>Performance</span>
- 
-</div>
-
-            <p class="max-w-2xl mx-auto text-slate-600 text-base sm:text-lg font-light mb-12 leading-relaxed">
-                เราคือเอเจนซี่ขับเคลื่อนธุรกิจด้วยความคิดสร้างสรรค์ ข้อมูลเชิงลึก และผลลัพธ์ที่วัดผลได้จริง ยกระดับแบรนด์ของคุณสู่ความเป็นผู้นำตลาด
-            </p>
-
-            <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-                <a href="#portfolio" class="w-full sm:w-auto px-8 py-4 rounded-full text-sm font-bold uppercase tracking-wider text-white gradient-bg hover:opacity-95 transition-all shadow-xl shadow-cyan-500/20 flex items-center justify-center space-x-3 group">
-                    <span>VIEW OUR WORK</span>
-                    <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
-                </a>
-                <a href="#contact" class="w-full sm:w-auto px-8 py-4 rounded-full text-sm font-bold uppercase tracking-wider text-slate-800 border border-slate-300 hover:bg-slate-50 transition-all flex items-center justify-center space-x-3 shadow-sm">
-                    <span>สอบถามเพิ่มเติม</span>
-                </a>
-            </div>
-
-
-
-          <!-- Marketing Platforms -->
-<section class="pt-20 sm:pt-16 pb-12 sm:pb-16 bg-white">
-    <div class="max-w-7xl mx-auto px-5 sm:px-6">
-        <div class="text-center mb-10">
-            <span class="inline-flex items-center gap-2 text-xs sm:text-sm uppercase tracking-[0.28em] text-cyan-600 font-bold">
-                <span class="w-2 h-2 rounded-full bg-cyan-500"></span>
-                MARKETING PLATFORMS
-                 <span class="w-2 h-2 rounded-full bg-cyan-500"></span>
-            </span>
-
-            <h2 class="mt-4 text-2xl sm:text-3xl font-bold text-slate-900">
-                REACH YOUR AUDIENCE
-                <br class="sm:hidden">
-                WHERE THEY ARE
-            </h2>
-
-            <p class="mt-4 text-sm sm:text-base text-slate-600">
-                วางกลยุทธ์และทำการตลาดผ่านแพลตฟอร์มชั้นนำ
-            </p>
-        </div>
-
-   <div class="marketing-platforms-logos">
-    
-    <!-- Facebook -->
-    <div class="platform-logo">
-        <img src="/facebook.png" alt="Facebook">
-      
-    </div>
-
-    <!-- Instagram -->
-    <div class="platform-logo">
-        <img src="/instagram.png" alt="Instagram">
-       
-    </div>
-
-    <!-- TikTok -->
-    <div class="platform-logo">
-        <img src="/tiktok.png" alt="TikTok">
-       
-    </div>
-
-    <!-- Google -->
-    <div class="platform-logo">
-        <img src="/google.png" alt="Google">
+    <!-- Main Content Container -->
+    <main class="max-w-3xl mx-auto px-4 sm:px-6 -mt-8 relative z-20">
         
-    </div>
+        <form id="feedbackForm" class="space-y-8" onsubmit="handleFormSubmit(event)">
 
-    <!-- YouTube -->
-    <div class="platform-logo">
-        <img src="/youtube.png" alt="YouTube">
-        
-    </div>
-
-</div>
-           <!-- Video Showcase -->
-<div class="mt-8 relative rounded-3xl overflow-hidden glass-card p-2 sm:p-4 border border-slate-200 shadow-2xl">
-  <video
-    class="w-full aspect-video rounded-2xl object-cover bg-black"
-    autoplay
-    muted  
-    loop
-    playsinline
-    controls
-    preload="auto"
->
-    <source src="/showcase.mp4" type="video/mp4">
-</video>
-</div>
+            <!-- SECTION 1: ข้อมูลทั่วไป -->
+            <section class="luxury-card rounded-2xl p-6 sm:p-8">
+                <div class="flex items-center gap-3 pb-4 mb-6 border-b border-khamwan-amber/20">
+                    <div class="w-10 h-10 rounded-full bg-amber-100 text-khamwan-darkGold flex items-center justify-center font-bold text-lg">
+                        <i class="fa-solid fa-user"></i>
                     </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    </div>
-</section>
-    
-   <section class="client-showcase -mt-16 sm:mt-0 py-0 sm:py-4 border-t border-b border-slate-100">
-        <div class="max-w-7xl mx-auto px-5 sm:px-6">
-            <div class="text-center">
-                <span class="inline-flex items-center gap-2 text-[10px] sm:text-xs uppercase tracking-[0.28em] text-cyan-600 font-bold">
-                    <span class="w-5 h-px bg-cyan-500"></span>
-                    Trusted By
-                    <span class="w-5 h-px bg-cyan-500"></span>
-                </span>
-
-                <h2 class="client-en-title mt-3 text-sm sm:text-base uppercase tracking-[0.18em] font-semibold">
-                    Our Clients 
-                </h2>
-
-                
-            </div>
-
-            <div class="client-carousel" aria-label="Client logos">
-                <button class="client-arrow prev" id="client-prev" type="button" aria-label="Previous clients">
-                    <i class="fa-solid fa-chevron-left"></i>
-                </button>
-
-                <div class="client-viewport" id="client-viewport">
-                    <div class="client-pages" id="client-pages">
-
-                        <!-- Page content is generated from these client logos.
-                             12 logos = 1 page: 6x2 on desktop / 4x3 on mobile. -->
-
-                        <div class="client-logo-card"><img src="./ram.png" alt="RAM Hospital"></div>
-                        <div class="client-logo-card"><img src="./central.png" alt="Central Chiangmai"></div>
-                        <div class="client-logo-card"><img src="./major.png" alt="Major"></div>
-                        <div class="client-logo-card"><img src="./im.png" alt="IM-MEE"></div>
-                        <div class="client-logo-card"><img src="./noodle.png" alt="Noodle"></div>
-                        <div class="client-logo-card"><img src="./kk.png" alt="KK"></div>
-                        <div class="client-logo-card"><img src="./wella.png" alt="Wella"></div>
-                        <div class="client-logo-card"><img src="./pachara.png" alt="Pachara"></div>
-                        <div class="client-logo-card"><img src="./cpn.png" alt="CPN"></div>
-                        <div class="client-logo-card"><img src="./baan.png" alt="Baan"></div>
-                        <div class="client-logo-card"><img src="./ashida.png" alt="Ashida"></div>
-                        <div class="client-logo-card"><img src="./fly.png" alt="Fly in Chiang Mai"></div>
-
-                        <div class="client-logo-card"><img src="./kham.png" alt="kham"></div>
-                        <div class="client-logo-card"><img src="./soul.png" alt="soul"></div>
-                         <div class="client-logo-card"><img src="./zoo.png" alt="zoo"></div>
-                        <div class="client-logo-card"><img src="./ngon.png" alt="ngon"></div>
-                        <div class="client-logo-card"><img src="./sanhom.png" alt="sanhom"></div>
-                        <div class="client-logo-card"><img src="./da.png" alt="da"></div>
-                        <div class="client-logo-card"><img src="./dow.png" alt="dow"></div>
-                        <div class="client-logo-card"><img src="./mala.png" alt="mala"></div>
-                        <div class="client-logo-card"><img src="./steak.png" alt="steak"></div>
-                        <div class="client-logo-card"><img src="./fine.png" alt="fine"></div>
-                        <div class="client-logo-card"><img src="./8hour.png" alt="8hour"></div>
-                        <div class="client-logo-card"><img src="./smart.png" alt="smart"></div>
-                        
-                        <!-- เพิ่ม Logo ใหม่ตรงนี้ได้เลย
-                             เช่น:
-                             <div class="client-logo-card">
-                                 <img src="./new-logo.png" alt="New Client">
-                             </div>
-                        -->
-
+                    <div>
+                        <h2 class="text-xl font-bold text-khamwan-brown">1. ข้อมูลการใช้บริการและผู้ให้ข้อมูล</h2>
+                        <p class="text-xs text-gray-500">กรุณากรอกข้อมูลเพื่อรับสิทธิ์และใช้ยืนยันการรับของสมนาคุณ</p>
                     </div>
                 </div>
 
-                <button class="client-arrow next" id="client-next" type="button" aria-label="Next clients">
-                    <i class="fa-solid fa-chevron-right"></i>
-                </button>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <!-- Receipt Number -->
+                    <div class="md:col-span-2">
+                        <label for="receiptNo" class="block text-sm font-semibold text-khamwan-brown mb-2">
+                            เลขที่ใบเสร็จรับเงิน <span class="text-xs font-normal text-gray-500">(กรณีจำได้)</span>
+                        </label>
+                        <div class="relative">
+                            <i class="fa-solid fa-receipt absolute left-4 top-3.5 text-gray-400"></i>
+                            <input type="text" id="receiptNo" name="receiptNo" placeholder="เช่น REC-2026-0089" 
+                                   class="w-full pl-11 pr-4 py-3 rounded-xl border border-gray-200 focus:border-khamwan-amber focus:ring-2 focus:ring-khamwan-amber/20 transition outline-none text-sm bg-white">
+                        </div>
+                    </div>
 
-                <div class="client-dots" id="client-dots" aria-label="Client logo pages"></div>
-            </div>
-        </div>
-    </section>
+                    <!-- Name & Surname -->
+                    <div class="md:col-span-2">
+                        <label for="fullName" class="block text-sm font-semibold text-khamwan-brown mb-2">
+                            ชื่อ-นามสกุล
+                        </label>
+                        <div class="relative">
+                            <i class="fa-solid fa-user-pen absolute left-4 top-3.5 text-gray-400"></i>
+                            <input type="text" id="fullName" name="fullName" placeholder="คุณสมชาย ใจดี" 
+                                   class="w-full pl-11 pr-4 py-3 rounded-xl border border-gray-200 focus:border-khamwan-amber focus:ring-2 focus:ring-khamwan-amber/20 transition outline-none text-sm bg-white">
+                        </div>
+                    </div>
 
-    <section id="services" class="py-28 px-6 relative bg-white">
-        <div class="max-w-7xl mx-auto">
-            <div class="flex flex-col md:flex-row md:items-end justify-between mb-20">
+                    <!-- Phone Number -->
+                    <div>
+                        <label for="phone" class="block text-sm font-semibold text-khamwan-brown mb-2">
+                            เบอร์โทรศัพท์ <span class="text-amber-600">*</span>
+                        </label>
+                        <div class="relative">
+                            <i class="fa-solid fa-phone absolute left-4 top-3.5 text-gray-400"></i>
+                            <input type="tel" id="phone" name="phone" required placeholder="081-234-5678" 
+                                   class="w-full pl-11 pr-4 py-3 rounded-xl border border-gray-200 focus:border-khamwan-amber focus:ring-2 focus:ring-khamwan-amber/20 transition outline-none text-sm bg-white">
+                        </div>
+                    </div>
+
+                    <!-- Email -->
+                    <div>
+                        <label for="email" class="block text-sm font-semibold text-khamwan-brown mb-2">
+                            E-mail
+                        </label>
+                        <div class="relative">
+                            <i class="fa-solid fa-envelope absolute left-4 top-3.5 text-gray-400"></i>
+                            <input type="email" id="email" name="email" placeholder="example@email.com" 
+                                   class="w-full pl-11 pr-4 py-3 rounded-xl border border-gray-200 focus:border-khamwan-amber focus:ring-2 focus:ring-khamwan-amber/20 transition outline-none text-sm bg-white">
+                        </div>
+                    </div>
+
+                    <!-- Age -->
+                    <div>
+                        <label for="age" class="block text-sm font-semibold text-khamwan-brown mb-2">
+                            อายุ
+                        </label>
+                        <select id="age" name="age" class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-khamwan-amber focus:ring-2 focus:ring-khamwan-amber/20 transition outline-none text-sm bg-white text-gray-700">
+                            <option value="">-- กรุณาเลือกช่วงอายุ --</option>
+                            <option value="ต่ำกว่า 20 ปี">ต่ำกว่า 20 ปี</option>
+                            <option value="20 - 30 ปี">20 - 30 ปี</option>
+                            <option value="31 - 45 ปี">31 - 45 ปี</option>
+                            <option value="46 - 60 ปี">46 - 60 ปี</option>
+                            <option value="60 ปีขึ้นไป">60 ปีขึ้นไป</option>
+                        </select>
+                    </div>
+
+                    <!-- Gender -->
+                    <div>
+                        <label class="block text-sm font-semibold text-khamwan-brown mb-2">
+                            เพศ <span class="text-amber-600">*</span>
+                        </label>
+                        <div class="grid grid-cols-2 gap-3">
+                            <div>
+                                <input type="radio" id="gender_male" name="gender" value="ชาย" class="hidden custom-radio" required>
+                                <label for="gender_male" class="flex items-center justify-center gap-2 py-2.5 px-4 rounded-xl border border-gray-200 text-sm cursor-pointer transition font-medium text-gray-600 hover:bg-gray-50">
+                                    <i class="fa-solid fa-mars text-blue-500"></i> ชาย
+                                </label>
+                            </div>
+                            <div>
+                                <input type="radio" id="gender_female" name="gender" value="หญิง" class="hidden custom-radio" required>
+                                <label for="gender_female" class="flex items-center justify-center gap-2 py-2.5 px-4 rounded-xl border border-gray-200 text-sm cursor-pointer transition font-medium text-gray-600 hover:bg-gray-50">
+                                    <i class="fa-solid fa-venus text-pink-500"></i> หญิง
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- How did you know us? -->
+                    <div class="md:col-span-2">
+                        <label class="block text-sm font-semibold text-khamwan-brown mb-2">
+                            ท่านรู้จักร้านก๋วยเตี๋ยวคำหวาน / ครัวคำหวาน โดยวิธีใด <span class="text-amber-600">*</span>
+                        </label>
+                        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                            <div>
+                                <input type="radio" id="channel_walk" name="channel" value="เดินผ่าน" class="hidden custom-radio" required>
+                                <label for="channel_walk" class="flex items-center justify-center gap-2 py-3 px-3 rounded-xl border border-gray-200 text-sm cursor-pointer transition font-medium text-gray-700 hover:bg-gray-50 text-center">
+                                    <i class="fa-solid fa-person-walking text-amber-600"></i> เดินผ่าน
+                                </label>
+                            </div>
+                            <div>
+                                <input type="radio" id="channel_recommend" name="channel" value="มีคนแนะนำ" class="hidden custom-radio">
+                                <label for="channel_recommend" class="flex items-center justify-center gap-2 py-3 px-3 rounded-xl border border-gray-200 text-sm cursor-pointer transition font-medium text-gray-700 hover:bg-gray-50 text-center">
+                                    <i class="fa-solid fa-comments text-amber-600"></i> มีคนแนะนำ
+                                </label>
+                            </div>
+                            <div>
+                                <input type="radio" id="channel_fb" name="channel" value="Facebook Fan page" class="hidden custom-radio">
+                                <label for="channel_fb" class="flex items-center justify-center gap-2 py-3 px-3 rounded-xl border border-gray-200 text-sm cursor-pointer transition font-medium text-gray-700 hover:bg-gray-50 text-center">
+                                    <i class="fa-brands fa-facebook text-blue-600"></i> Facebook
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Staff Name -->
+                    <div class="md:col-span-2">
+                        <label for="staffName" class="block text-sm font-semibold text-khamwan-brown mb-2">
+                            ชื่อพนักงานที่ให้บริการท่าน <span class="text-xs font-normal text-gray-500">(กรณีจำได้)</span>
+                        </label>
+                        <div class="relative">
+                            <i class="fa-solid fa-id-badge absolute left-4 top-3.5 text-gray-400"></i>
+                            <input type="text" id="staffName" name="staffName" placeholder="เช่น คุณสมศรี, พนักงานป้ายชื่อน้อง..." 
+                                   class="w-full pl-11 pr-4 py-3 rounded-xl border border-gray-200 focus:border-khamwan-amber focus:ring-2 focus:ring-khamwan-amber/20 transition outline-none text-sm bg-white">
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SECTION 2: ประเมินความพึงพอใจ 17 ข้อ -->
+            <section class="luxury-card rounded-2xl p-6 sm:p-8">
+                <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 mb-6 border-b border-khamwan-amber/20">
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-full bg-amber-100 text-khamwan-darkGold flex items-center justify-center font-bold text-lg">
+                            <i class="fa-solid fa-utensils"></i>
+                        </div>
+                        <div>
+                            <h2 class="text-xl font-bold text-khamwan-brown">2. การประเมินประสบการณ์การรับบริการ</h2>
+                            <p class="text-xs text-gray-500">กรุณาเลือก "ใช่" หรือ "ไม่ใช่" ในทุกข้อการประเมิน</p>
+                        </div>
+                    </div>
+                    <!-- Quick Select Button -->
+                    <button type="button" onclick="selectAllYes()" class="inline-flex items-center justify-center gap-1.5 px-3 py-1.5 rounded-lg border border-amber-300 bg-amber-50 text-amber-800 text-xs font-medium hover:bg-amber-100 transition shadow-sm self-start sm:self-auto">
+                        <i class="fa-solid fa-check-double text-amber-600"></i> เลือก "ใช่" ทุกข้อ
+                    </button>
+                </div>
+
+                <!-- Food Decorative Images Grid -->
+                <div class="grid grid-cols-3 gap-2 mb-6">
+                    <div class="h-20 sm:h-28 rounded-xl overflow-hidden shadow-sm border border-amber-200/60">
+                        <img src="https://images.unsplash.com/photo-1562967914-608f82629710?auto=format&fit=crop&w=400&q=80" alt="อาหารครัวคำหวาน 1" class="w-full h-full object-cover hover:scale-105 transition duration-300">
+                    </div>
+                    <div class="h-20 sm:h-28 rounded-xl overflow-hidden shadow-sm border border-amber-200/60">
+                        <img src="https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?auto=format&fit=crop&w=400&q=80" alt="อาหารครัวคำหวาน 2" class="w-full h-full object-cover hover:scale-105 transition duration-300">
+                    </div>
+                    <div class="h-20 sm:h-28 rounded-xl overflow-hidden shadow-sm border border-amber-200/60">
+                        <img src="https://images.unsplash.com/photo-1555126634-323283e090fa?auto=format&fit=crop&w=400&q=80" alt="อาหารครัวคำหวาน 3" class="w-full h-full object-cover hover:scale-105 transition duration-300">
+                    </div>
+                </div>
+
+                <!-- Questions List -->
+                <div class="space-y-4 divide-y divide-gray-100">
+
+                    <!-- Q1 -->
+                    <div class="pt-4 first:pt-0">
+                        <p class="text-sm font-medium text-gray-800 mb-3 leading-relaxed">
+                            <span class="inline-block font-bold text-khamwan-darkGold mr-1">1.</span>
+                            ได้รับการทักทาย ยิ้มแย้ม ช่วยเหลือและเอาใจใส่ทันทีที่เดินเข้าร้าน หรือเข้าหาทันทีเมื่อมีการเรียกใช้บริการ <span class="text-amber-600">*</span>
+                        </p>
+                        <div class="grid grid-cols-2 gap-3 max-w-xs">
+                            <div>
+                                <input type="radio" id="q1_yes" name="q1" value="ใช่" class="hidden custom-yesno-yes" required>
+                                <label for="q1_yes" class="flex items-center justify-center gap-2 py-2 px-4 rounded-xl border border-gray-200 text-sm font-medium cursor-pointer transition text-gray-700 hover:bg-gray-50">
+                                    <i class="fa-solid fa-circle-check"></i> ใช่
+                                </label>
+                            </div>
+                            <div>
+                                <input type="radio" id="q1_no" name="q1" value="ไม่ใช่" class="hidden custom-yesno-no">
+                                <label for="q1_no" class="flex items-center justify-center gap-2 py-2 px-4 rounded-xl border border-gray-200 text-sm font-medium cursor-pointer transition text-gray-700 hover:bg-gray-50">
+                                    <i class="fa-solid fa-circle-xmark"></i> ไม่ใช่
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Q2 -->
+                    <div class="pt-4">
+                        <p class="text-sm font-medium text-gray-800 mb-3 leading-relaxed">
+                            <span class="inline-block font-bold text-khamwan-darkGold mr-1">2.</span>
+                            ได้รับการเรียนเชิญไปที่โต๊ะพร้อม มอบเมนูรายการอาหาร <span class="text-amber-600">*</span>
+                        </p>
+                        <div class="grid grid-cols-2 gap-3 max-w-xs">
+                            <div>
+                                <input type="radio" id="q2_yes" name="q2" value="ใช่" class="hidden custom-yesno-yes" required>
+                                <label for="q2_yes" class="flex items-center justify-center gap-2 py-2 px-4 rounded-xl border border-gray-200 text-sm font-medium cursor-pointer transition text-gray-700 hover:bg-gray-50">
+                                    <i class="fa-solid fa-circle-check"></i> ใช่
+                                </label>
+                            </div>
+                            <div>
+                                <input type="radio" id="q2_no" name="q2" value="ไม่ใช่" class="hidden custom-yesno-no">
+                                <label for="q2_no" class="flex items-center justify-center gap-2 py-2 px-4 rounded-xl border border-gray-200 text-sm font-medium cursor-pointer transition text-gray-700 hover:bg-gray-50">
+                                    <i class="fa-solid fa-circle-xmark"></i> ไม่ใช่
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Q3 -->
+                    <div class="pt-4">
+                        <p class="text-sm font-medium text-gray-800 mb-3 leading-relaxed">
+                            <span class="inline-block font-bold text-khamwan-darkGold mr-1">3.</span>
+                            พนักงานยิ้มแย้มแจ่มใส ปิดการขายด้วยการยกมือไหว้ กล่าวขอบคุณ และเชิญชวนให้ลูกค้ากลับมาใช้บริการอีกครั้ง <span class="text-amber-600">*</span>
+                        </p>
+                        <div class="grid grid-cols-2 gap-3 max-w-xs">
+                            <div>
+                                <input type="radio" id="q3_yes" name="q3" value="ใช่" class="hidden custom-yesno-yes" required>
+                                <label for="q3_yes" class="flex items-center justify-center gap-2 py-2 px-4 rounded-xl border border-gray-200 text-sm font-medium cursor-pointer transition text-gray-700 hover:bg-gray-50">
+                                    <i class="fa-solid fa-circle-check"></i> ใช่
+                                </label>
+                            </div>
+                            <div>
+                                <input type="radio" id="q3_no" name="q3" value="ไม่ใช่" class="hidden custom-yesno-no">
+                                <label for="q3_no" class="flex items-center justify-center gap-2 py-2 px-4 rounded-xl border border-gray-200 text-sm font-medium cursor-pointer transition text-gray-700 hover:bg-gray-50">
+                                    <i class="fa-solid fa-circle-xmark"></i> ไม่ใช่
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Q4 -->
+                    <div class="pt-4">
+                        <p class="text-sm font-medium text-gray-800 mb-3 leading-relaxed">
+                            <span class="inline-block font-bold text-khamwan-darkGold mr-1">4.</span>
+                            ได้รับแนะนำเมนูใหม่หรือสินค้าแนะนำหรือเมนูอื่นๆ <span class="text-amber-600">*</span>
+                        </p>
+                        <div class="grid grid-cols-2 gap-3 max-w-xs">
+                            <div>
+                                <input type="radio" id="q4_yes" name="q4" value="ใช่" class="hidden custom-yesno-yes" required>
+                                <label for="q4_yes" class="flex items-center justify-center gap-2 py-2 px-4 rounded-xl border border-gray-200 text-sm font-medium cursor-pointer transition text-gray-700 hover:bg-gray-50">
+                                    <i class="fa-solid fa-circle-check"></i> ใช่
+                                </label>
+                            </div>
+                            <div>
+                                <input type="radio" id="q4_no" name="q4" value="ไม่ใช่" class="hidden custom-yesno-no">
+                                <label for="q4_no" class="flex items-center justify-center gap-2 py-2 px-4 rounded-xl border border-gray-200 text-sm font-medium cursor-pointer transition text-gray-700 hover:bg-gray-50">
+                                    <i class="fa-solid fa-circle-xmark"></i> ไม่ใช่
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Q5 -->
+                    <div class="pt-4">
+                        <p class="text-sm font-medium text-gray-800 mb-3 leading-relaxed">
+                            <span class="inline-block font-bold text-khamwan-darkGold mr-1">5.</span>
+                            ได้รับการทวนรายการอาหารทุกครั้งที่มีการสั่งอาหารเสร็จ <span class="text-amber-600">*</span>
+                        </p>
+                        <div class="grid grid-cols-2 gap-3 max-w-xs">
+                            <div>
+                                <input type="radio" id="q5_yes" name="q5" value="ใช่" class="hidden custom-yesno-yes" required>
+                                <label for="q5_yes" class="flex items-center justify-center gap-2 py-2 px-4 rounded-xl border border-gray-200 text-sm font-medium cursor-pointer transition text-gray-700 hover:bg-gray-50">
+                                    <i class="fa-solid fa-circle-check"></i> ใช่
+                                </label>
+                            </div>
+                            <div>
+                                <input type="radio" id="q5_no" name="q5" value="ไม่ใช่" class="hidden custom-yesno-no">
+                                <label for="q5_no" class="flex items-center justify-center gap-2 py-2 px-4 rounded-xl border border-gray-200 text-sm font-medium cursor-pointer transition text-gray-700 hover:bg-gray-50">
+                                    <i class="fa-solid fa-circle-xmark"></i> ไม่ใช่
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Q6 -->
+                    <div class="pt-4">
+                        <p class="text-sm font-medium text-gray-800 mb-3 leading-relaxed">
+                            <span class="inline-block font-bold text-khamwan-darkGold mr-1">6.</span>
+                            พนักงานมีการขออนุญาตลูกค้าเสิร์ฟอาหารและแจ้งชื่ออาหารที่จะเสิร์ฟก่อนทุกครั้ง <span class="text-amber-600">*</span>
+                        </p>
+                        <div class="grid grid-cols-2 gap-3 max-w-xs">
+                            <div>
+                                <input type="radio" id="q6_yes" name="q6" value="ใช่" class="hidden custom-yesno-yes" required>
+                                <label for="q6_yes" class="flex items-center justify-center gap-2 py-2 px-4 rounded-xl border border-gray-200 text-sm font-medium cursor-pointer transition text-gray-700 hover:bg-gray-50">
+                                    <i class="fa-solid fa-circle-check"></i> ใช่
+                                </label>
+                            </div>
+                            <div>
+                                <input type="radio" id="q6_no" name="q6" value="ไม่ใช่" class="hidden custom-yesno-no">
+                                <label for="q6_no" class="flex items-center justify-center gap-2 py-2 px-4 rounded-xl border border-gray-200 text-sm font-medium cursor-pointer transition text-gray-700 hover:bg-gray-50">
+                                    <i class="fa-solid fa-circle-xmark"></i> ไม่ใช่
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Q7 -->
+                    <div class="pt-4">
+                        <p class="text-sm font-medium text-gray-800 mb-3 leading-relaxed">
+                            <span class="inline-block font-bold text-khamwan-darkGold mr-1">7.</span>
+                            บุคลิกภาพ การแต่งกายของพนักงานสะอาด เรียบร้อยมีป้ายชื่อชัดเจน <span class="text-amber-600">*</span>
+                        </p>
+                        <div class="grid grid-cols-2 gap-3 max-w-xs">
+                            <div>
+                                <input type="radio" id="q7_yes" name="q7" value="ใช่" class="hidden custom-yesno-yes" required>
+                                <label for="q7_yes" class="flex items-center justify-center gap-2 py-2 px-4 rounded-xl border border-gray-200 text-sm font-medium cursor-pointer transition text-gray-700 hover:bg-gray-50">
+                                    <i class="fa-solid fa-circle-check"></i> ใช่
+                                </label>
+                            </div>
+                            <div>
+                                <input type="radio" id="q7_no" name="q7" value="ไม่ใช่" class="hidden custom-yesno-no">
+                                <label for="q7_no" class="flex items-center justify-center gap-2 py-2 px-4 rounded-xl border border-gray-200 text-sm font-medium cursor-pointer transition text-gray-700 hover:bg-gray-50">
+                                    <i class="fa-solid fa-circle-xmark"></i> ไม่ใช่
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Q8 -->
+                    <div class="pt-4">
+                        <p class="text-sm font-medium text-gray-800 mb-3 leading-relaxed">
+                            <span class="inline-block font-bold text-khamwan-darkGold mr-1">8.</span>
+                            พนักงานแจ้งลูกค้าให้ตรวจสอบรายการอาหาร ค่าอาหารและเงินทอนทุกครั้ง <span class="text-amber-600">*</span>
+                        </p>
+                        <div class="grid grid-cols-2 gap-3 max-w-xs">
+                            <div>
+                                <input type="radio" id="q8_yes" name="q8" value="ใช่" class="hidden custom-yesno-yes" required>
+                                <label for="q8_yes" class="flex items-center justify-center gap-2 py-2 px-4 rounded-xl border border-gray-200 text-sm font-medium cursor-pointer transition text-gray-700 hover:bg-gray-50">
+                                    <i class="fa-solid fa-circle-check"></i> ใช่
+                                </label>
+                            </div>
+                            <div>
+                                <input type="radio" id="q8_no" name="q8" value="ไม่ใช่" class="hidden custom-yesno-no">
+                                <label for="q8_no" class="flex items-center justify-center gap-2 py-2 px-4 rounded-xl border border-gray-200 text-sm font-medium cursor-pointer transition text-gray-700 hover:bg-gray-50">
+                                    <i class="fa-solid fa-circle-xmark"></i> ไม่ใช่
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Q9 -->
+                    <div class="pt-4">
+                        <p class="text-sm font-medium text-gray-800 mb-3 leading-relaxed">
+                            <span class="inline-block font-bold text-khamwan-darkGold mr-1">9.</span>
+                            ภายนอก และภายในร้าน ไม่ชำรุด สะอาด ปราศจากขยะ สัตว์รบกวนหรือมีกลิ่นไม่พึงประสงค์ <span class="text-amber-600">*</span>
+                        </p>
+                        <div class="grid grid-cols-2 gap-3 max-w-xs">
+                            <div>
+                                <input type="radio" id="q9_yes" name="q9" value="ใช่" class="hidden custom-yesno-yes" required>
+                                <label for="q9_yes" class="flex items-center justify-center gap-2 py-2 px-4 rounded-xl border border-gray-200 text-sm font-medium cursor-pointer transition text-gray-700 hover:bg-gray-50">
+                                    <i class="fa-solid fa-circle-check"></i> ใช่
+                                </label>
+                            </div>
+                            <div>
+                                <input type="radio" id="q9_no" name="q9" value="ไม่ใช่" class="hidden custom-yesno-no">
+                                <label for="q9_no" class="flex items-center justify-center gap-2 py-2 px-4 rounded-xl border border-gray-200 text-sm font-medium cursor-pointer transition text-gray-700 hover:bg-gray-50">
+                                    <i class="fa-solid fa-circle-xmark"></i> ไม่ใช่
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Q10 -->
+                    <div class="pt-4">
+                        <p class="text-sm font-medium text-gray-800 mb-3 leading-relaxed">
+                            <span class="inline-block font-bold text-khamwan-darkGold mr-1">10.</span>
+                            ช้อน ส้อม มีด ตะเกียบ จานหรือภาชนะใส่อาหารไม่ชำรุด และไม่มีคราบสกปรก <span class="text-amber-600">*</span>
+                        </p>
+                        <div class="grid grid-cols-2 gap-3 max-w-xs">
+                            <div>
+                                <input type="radio" id="q10_yes" name="q10" value="ใช่" class="hidden custom-yesno-yes" required>
+                                <label for="q10_yes" class="flex items-center justify-center gap-2 py-2 px-4 rounded-xl border border-gray-200 text-sm font-medium cursor-pointer transition text-gray-700 hover:bg-gray-50">
+                                    <i class="fa-solid fa-circle-check"></i> ใช่
+                                </label>
+                            </div>
+                            <div>
+                                <input type="radio" id="q10_no" name="q10" value="ไม่ใช่" class="hidden custom-yesno-no">
+                                <label for="q10_no" class="flex items-center justify-center gap-2 py-2 px-4 rounded-xl border border-gray-200 text-sm font-medium cursor-pointer transition text-gray-700 hover:bg-gray-50">
+                                    <i class="fa-solid fa-circle-xmark"></i> ไม่ใช่
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Q11 -->
+                    <div class="pt-4">
+                        <p class="text-sm font-medium text-gray-800 mb-3 leading-relaxed">
+                            <span class="inline-block font-bold text-khamwan-darkGold mr-1">11.</span>
+                            รูปลักษณ์ / อุณหภูมิ / รสชาติ / ปริมาณของอาหารเป็นไปตามที่ลูกค้าคาดหวัง <span class="text-amber-600">*</span>
+                        </p>
+                        <div class="grid grid-cols-2 gap-3 max-w-xs">
+                            <div>
+                                <input type="radio" id="q11_yes" name="q11" value="ใช่" class="hidden custom-yesno-yes" required>
+                                <label for="q11_yes" class="flex items-center justify-center gap-2 py-2 px-4 rounded-xl border border-gray-200 text-sm font-medium cursor-pointer transition text-gray-700 hover:bg-gray-50">
+                                    <i class="fa-solid fa-circle-check"></i> ใช่
+                                </label>
+                            </div>
+                            <div>
+                                <input type="radio" id="q11_no" name="q11" value="ไม่ใช่" class="hidden custom-yesno-no">
+                                <label for="q11_no" class="flex items-center justify-center gap-2 py-2 px-4 rounded-xl border border-gray-200 text-sm font-medium cursor-pointer transition text-gray-700 hover:bg-gray-50">
+                                    <i class="fa-solid fa-circle-xmark"></i> ไม่ใช่
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Q12 -->
+                    <div class="pt-4">
+                        <p class="text-sm font-medium text-gray-800 mb-3 leading-relaxed">
+                            <span class="inline-block font-bold text-khamwan-darkGold mr-1">12.</span>
+                            บรรยากาศในร้านมีความเหมาะสมทั้งด้านเสียงเพลง และอุณหภูมิ <span class="text-amber-600">*</span>
+                        </p>
+                        <div class="grid grid-cols-2 gap-3 max-w-xs">
+                            <div>
+                                <input type="radio" id="q12_yes" name="q12" value="ใช่" class="hidden custom-yesno-yes" required>
+                                <label for="q12_yes" class="flex items-center justify-center gap-2 py-2 px-4 rounded-xl border border-gray-200 text-sm font-medium cursor-pointer transition text-gray-700 hover:bg-gray-50">
+                                    <i class="fa-solid fa-circle-check"></i> ใช่
+                                </label>
+                            </div>
+                            <div>
+                                <input type="radio" id="q12_no" name="q12" value="ไม่ใช่" class="hidden custom-yesno-no">
+                                <label for="q12_no" class="flex items-center justify-center gap-2 py-2 px-4 rounded-xl border border-gray-200 text-sm font-medium cursor-pointer transition text-gray-700 hover:bg-gray-50">
+                                    <i class="fa-solid fa-circle-xmark"></i> ไม่ใช่
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Q13 -->
+                    <div class="pt-4">
+                        <p class="text-sm font-medium text-gray-800 mb-3 leading-relaxed">
+                            <span class="inline-block font-bold text-khamwan-darkGold mr-1">13.</span>
+                            ห้องสุขามีอุปกรณ์ทำความสะอาดครบ / พื้นห้องสุขา / เครื่องสุขภัณฑ์ สะอาดไม่มีกลิ่นไม่พึงประสงค์และไม่มีสัตว์ที่ไม่พึงประสงค์ <span class="text-amber-600">*</span>
+                        </p>
+                        <div class="grid grid-cols-2 gap-3 max-w-xs">
+                            <div>
+                                <input type="radio" id="q13_yes" name="q13" value="ใช่" class="hidden custom-yesno-yes" required>
+                                <label for="q13_yes" class="flex items-center justify-center gap-2 py-2 px-4 rounded-xl border border-gray-200 text-sm font-medium cursor-pointer transition text-gray-700 hover:bg-gray-50">
+                                    <i class="fa-solid fa-circle-check"></i> ใช่
+                                </label>
+                            </div>
+                            <div>
+                                <input type="radio" id="q13_no" name="q13" value="ไม่ใช่" class="hidden custom-yesno-no">
+                                <label for="q13_no" class="flex items-center justify-center gap-2 py-2 px-4 rounded-xl border border-gray-200 text-sm font-medium cursor-pointer transition text-gray-700 hover:bg-gray-50">
+                                    <i class="fa-solid fa-circle-xmark"></i> ไม่ใช่
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Q14 -->
+                    <div class="pt-4">
+                        <p class="text-sm font-medium text-gray-800 mb-3 leading-relaxed">
+                            <span class="inline-block font-bold text-khamwan-darkGold mr-1">14.</span>
+                            การจัดเก็บโต๊ะถูกเก็บภายใน 3 นาทีหลังจากที่ลูกค้าลุกจากโต๊ะ ไม่ปล่อยทิ้งไว้ <span class="text-amber-600">*</span>
+                        </p>
+                        <div class="grid grid-cols-2 gap-3 max-w-xs">
+                            <div>
+                                <input type="radio" id="q14_yes" name="q14" value="ใช่" class="hidden custom-yesno-yes" required>
+                                <label for="q14_yes" class="flex items-center justify-center gap-2 py-2 px-4 rounded-xl border border-gray-200 text-sm font-medium cursor-pointer transition text-gray-700 hover:bg-gray-50">
+                                    <i class="fa-solid fa-circle-check"></i> ใช่
+                                </label>
+                            </div>
+                            <div>
+                                <input type="radio" id="q14_no" name="q14" value="ไม่ใช่" class="hidden custom-yesno-no">
+                                <label for="q14_no" class="flex items-center justify-center gap-2 py-2 px-4 rounded-xl border border-gray-200 text-sm font-medium cursor-pointer transition text-gray-700 hover:bg-gray-50">
+                                    <i class="fa-solid fa-circle-xmark"></i> ไม่ใช่
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Q15 -->
+                    <div class="pt-4">
+                        <p class="text-sm font-medium text-gray-800 mb-3 leading-relaxed">
+                            <span class="inline-block font-bold text-khamwan-darkGold mr-1">15.</span>
+                            ได้รับเครื่องดื่มหลังจากสั่งอาหารเสร็จ ภายในเวลา 3 นาที <span class="text-amber-600">*</span>
+                        </p>
+                        <div class="grid grid-cols-2 gap-3 max-w-xs">
+                            <div>
+                                <input type="radio" id="q15_yes" name="q15" value="ใช่" class="hidden custom-yesno-yes" required>
+                                <label for="q15_yes" class="flex items-center justify-center gap-2 py-2 px-4 rounded-xl border border-gray-200 text-sm font-medium cursor-pointer transition text-gray-700 hover:bg-gray-50">
+                                    <i class="fa-solid fa-circle-check"></i> ใช่
+                                </label>
+                            </div>
+                            <div>
+                                <input type="radio" id="q15_no" name="q15" value="ไม่ใช่" class="hidden custom-yesno-no">
+                                <label for="q15_no" class="flex items-center justify-center gap-2 py-2 px-4 rounded-xl border border-gray-200 text-sm font-medium cursor-pointer transition text-gray-700 hover:bg-gray-50">
+                                    <i class="fa-solid fa-circle-xmark"></i> ไม่ใช่
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Q16 -->
+                    <div class="pt-4">
+                        <p class="text-sm font-medium text-gray-800 mb-3 leading-relaxed">
+                            <span class="inline-block font-bold text-khamwan-darkGold mr-1">16.</span>
+                            ได้รับอาหารจานแรกภายใน 10 นาที และจานสุดท้ายภายใน 25 นาที <span class="text-amber-600">*</span>
+                        </p>
+                        <div class="grid grid-cols-2 gap-3 max-w-xs">
+                            <div>
+                                <input type="radio" id="q16_yes" name="q16" value="ใช่" class="hidden custom-yesno-yes" required>
+                                <label for="q16_yes" class="flex items-center justify-center gap-2 py-2 px-4 rounded-xl border border-gray-200 text-sm font-medium cursor-pointer transition text-gray-700 hover:bg-gray-50">
+                                    <i class="fa-solid fa-circle-check"></i> ใช่
+                                </label>
+                            </div>
+                            <div>
+                                <input type="radio" id="q16_no" name="q16" value="ไม่ใช่" class="hidden custom-yesno-no">
+                                <label for="q16_no" class="flex items-center justify-center gap-2 py-2 px-4 rounded-xl border border-gray-200 text-sm font-medium cursor-pointer transition text-gray-700 hover:bg-gray-50">
+                                    <i class="fa-solid fa-circle-xmark"></i> ไม่ใช่
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Q17 -->
+                    <div class="pt-4 bg-amber-50/60 p-4 rounded-xl border border-amber-200/50">
+                        <p class="text-base font-semibold text-khamwan-brown mb-3 leading-relaxed">
+                            <span class="inline-block font-bold text-khamwan-darkGold mr-1">17.</span>
+                            ความพึงพอใจโดยรวมของท่านในวันนี้ <span class="text-amber-600">*</span>
+                        </p>
+                        <div class="grid grid-cols-2 gap-3 max-w-xs">
+                            <div>
+                                <input type="radio" id="q17_yes" name="q17" value="ใช่" class="hidden custom-yesno-yes" required>
+                                <label for="q17_yes" class="flex items-center justify-center gap-2 py-2.5 px-4 rounded-xl border border-emerald-300 text-sm font-medium cursor-pointer transition text-gray-700 hover:bg-emerald-50 bg-white">
+                                    <i class="fa-solid fa-face-smile text-emerald-600 text-lg"></i> พึงพอใจ
+                                </label>
+                            </div>
+                            <div>
+                                <input type="radio" id="q17_no" name="q17" value="ไม่ใช่" class="hidden custom-yesno-no">
+                                <label for="q17_no" class="flex items-center justify-center gap-2 py-2.5 px-4 rounded-xl border border-rose-300 text-sm font-medium cursor-pointer transition text-gray-700 hover:bg-rose-50 bg-white">
+                                    <i class="fa-solid fa-face-frown text-rose-600 text-lg"></i> ควรปรับปรุง
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- SECTION 3: ข้อเสนอแนะเพิ่มเติม -->
+            <section class="luxury-card rounded-2xl p-6 sm:p-8">
+                <div class="flex items-center gap-3 pb-4 mb-6 border-b border-khamwan-amber/20">
+                    <div class="w-10 h-10 rounded-full bg-amber-100 text-khamwan-darkGold flex items-center justify-center font-bold text-lg">
+                        <i class="fa-solid fa-comment-dots"></i>
+                    </div>
+                    <div>
+                        <h2 class="text-xl font-bold text-khamwan-brown">3. ข้อเสนอแนะเพิ่มเติม</h2>
+                        <p class="text-xs text-gray-500">ความคิดเห็นของท่านคือสิ่งสำคัญในการพัฒนาการบริการของเรา</p>
+                    </div>
+                </div>
+
                 <div>
-                    <span class="text-xs uppercase tracking-[0.25em] text-cyan-600 font-bold block mb-4">OUR CAPABILITIES</span>
-                    <h2 class="text-3xl sm:text-5xl font-black text-slate-900 uppercase tracking-tight">
-                        WE BUILD DIGITAL <br><span class="gradient-text">MOMENTUM.</span>
-                    </h2>
+                    <label for="suggestions" class="block text-sm font-semibold text-khamwan-brown mb-2">
+                        ข้อเสนอแนะ (Comment / Suggestions)
+                    </label>
+                    <textarea id="suggestions" name="suggestions" rows="4" placeholder="แสดงความคิดเห็น ข้อแนะนำ หรือความประทับใจเกี่ยวกับอาหารและการบริการ..." 
+                              class="w-full p-4 rounded-xl border border-gray-200 focus:border-khamwan-amber focus:ring-2 focus:ring-khamwan-amber/20 transition outline-none text-sm bg-white resize-none"></textarea>
                 </div>
-                <p class="text-slate-600 max-w-md font-light mt-6 md:mt-0 text-sm sm:text-base">
-                    ผสานกลยุทธ์เหนือระดับ งานดีไซน์สุดล้ำ และการยิงแอดแม่นยำ เพื่อสร้างผลลัพธ์ทางธุรกิจที่ทรงพลัง
+            </section>
+
+            <!-- Submit Button Area -->
+            <div class="text-center pt-2">
+                <button type="submit" id="submitBtn" class="w-full sm:w-auto min-w-[280px] px-8 py-4 rounded-xl gold-btn-gradient text-khamwan-deepBrown font-bold text-lg shadow-xl hover:shadow-2xl hover:scale-[1.01] active:scale-[0.99] transition duration-200 flex items-center justify-center gap-3 mx-auto">
+                    <span>ส่งแบบประเมิน & รับคูปองฟรี</span>
+                    <i class="fa-solid fa-gift text-xl"></i>
+                </button>
+                <p class="text-xs text-gray-500 mt-3">
+                    <i class="fa-solid fa-lock text-amber-700/60 mr-1"></i> ข้อมูลของท่านจะถูกเก็บรักษาเป็นความลับอย่างปลอดภัย
                 </p>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <!-- Service 1 -->
-                <div class="glass-card p-10 rounded-3xl border border-slate-200/80 hover:border-cyan-500/40 transition-all group relative overflow-hidden bg-slate-50/50">
-                    <div class="absolute top-0 right-0 w-48 h-48 bg-emerald-500/5 rounded-full blur-3xl pointer-events-none group-hover:bg-emerald-500/10 transition-colors"></div>
-                    <div class="flex justify-between items-start mb-8">
-                        <span class="text-xs font-mono font-bold text-cyan-600 tracking-widest">01 / SERVICE</span>
-                        <div class="w-12 h-12 rounded-2xl bg-white shadow-sm border border-slate-200 flex items-center justify-center text-emerald-600 text-xl group-hover:scale-110 transition-transform">
-                            <i class="fa-solid fa-pen-nib"></i>
-                        </div>
-                    </div>
-                    <h3 class="text-2xl font-bold text-slate-900 mb-4 uppercase tracking-wide">CONTENT</h3>
-                    <p class="text-slate-600 font-light mb-8 text-sm leading-relaxed">
-                        สร้างสรรค์เรื่องราวและคอนเทนต์ที่ดึงดูดสายตาและใจความสำคัญ ทั้ง Facebook, Instagram, TikTok, High-End Graphic และ Video Production ระดับมืออาชีพ
-                    </p>
-                    <div class="flex flex-wrap gap-2 pt-4 border-t border-slate-200/80">
-                        <span class="text-xs px-3 py-1 rounded-full bg-white border border-slate-200 text-slate-700 shadow-sm">Facebook / IG</span>
-                        <span class="text-xs px-3 py-1 rounded-full bg-white border border-slate-200 text-slate-700 shadow-sm">TikTok Creative</span>
-                        <span class="text-xs px-3 py-1 rounded-full bg-white border border-slate-200 text-slate-700 shadow-sm">Graphic Design</span>
-                        <span class="text-xs px-3 py-1 rounded-full bg-white border border-slate-200 text-slate-700 shadow-sm">Video Production</span>
-                    </div>
-                </div>
+        </form>
+    </main>
 
-                <!-- Service 2 -->
-                <div class="glass-card p-10 rounded-3xl border border-slate-200/80 hover:border-cyan-500/40 transition-all group relative overflow-hidden bg-slate-50/50">
-                    <div class="absolute top-0 right-0 w-48 h-48 bg-cyan-500/5 rounded-full blur-3xl pointer-events-none group-hover:bg-cyan-500/10 transition-colors"></div>
-                    <div class="flex justify-between items-start mb-8">
-                        <span class="text-xs font-mono font-bold text-cyan-600 tracking-widest">02 / SERVICE</span>
-                        <div class="w-12 h-12 rounded-2xl bg-white shadow-sm border border-slate-200 flex items-center justify-center text-cyan-600 text-xl group-hover:scale-110 transition-transform">
-                            <i class="fa-solid fa-chart-line"></i>
-                        </div>
-                    </div>
-                    <h3 class="text-2xl font-bold text-slate-900 mb-4 uppercase tracking-wide">PERFORMANCE</h3>
-                    <p class="text-slate-600 font-light mb-8 text-sm leading-relaxed">
-                        ยิงแอดแม่นยำด้วย Data-Driven Marketing เชี่ยวชาญ Meta Ads, TikTok Ads และ Google Ads เพื่อสร้างยอดขายและ ROI สูงสุดสำหรับธุรกิจของคุณ
-                    </p>
-                    <div class="flex flex-wrap gap-2 pt-4 border-t border-slate-200/80">
-                        <span class="text-xs px-3 py-1 rounded-full bg-white border border-slate-200 text-slate-700 shadow-sm">Meta Ads</span>
-                        <span class="text-xs px-3 py-1 rounded-full bg-white border border-slate-200 text-slate-700 shadow-sm">TikTok Ads</span>
-                        <span class="text-xs px-3 py-1 rounded-full bg-white border border-slate-200 text-slate-700 shadow-sm">Google Ads</span>
-                        <span class="text-xs px-3 py-1 rounded-full bg-white border border-slate-200 text-slate-700 shadow-sm">ROAS Optimization</span>
-                    </div>
-                </div>
-
-                <!-- Service 3 -->
-                <div class="glass-card p-10 rounded-3xl border border-slate-200/80 hover:border-cyan-500/40 transition-all group relative overflow-hidden bg-slate-50/50">
-                    <div class="absolute top-0 right-0 w-48 h-48 bg-blue-500/5 rounded-full blur-3xl pointer-events-none group-hover:bg-blue-500/10 transition-colors"></div>
-                    <div class="flex justify-between items-start mb-8">
-                        <span class="text-xs font-mono font-bold text-cyan-600 tracking-widest">03 / SERVICE</span>
-                        <div class="w-12 h-12 rounded-2xl bg-white shadow-sm border border-slate-200 flex items-center justify-center text-blue-600 text-xl group-hover:scale-110 transition-transform">
-                            <i class="fa-solid fa-magnifying-glass-chart"></i>
-                        </div>
-                    </div>
-                    <h3 class="text-2xl font-bold text-slate-900 mb-4 uppercase tracking-wide">SEO</h3>
-                    <p class="text-slate-600 font-light mb-8 text-sm leading-relaxed">
-                        ครองตำแหน่งอันดับ 1 บนหน้าค้นหา Google ด้วย Search Strategy ที่ครอบคลุม On-page, Off-page และ Technical SEO เพื่อ Organic Traffic ระยะยาว
-                    </p>
-                    <div class="flex flex-wrap gap-2 pt-4 border-t border-slate-200/80">
-                        <span class="text-xs px-3 py-1 rounded-full bg-white border border-slate-200 text-slate-700 shadow-sm">Search Strategy</span>
-                        <span class="text-xs px-3 py-1 rounded-full bg-white border border-slate-200 text-slate-700 shadow-sm">On-page SEO</span>
-                        <span class="text-xs px-3 py-1 rounded-full bg-white border border-slate-200 text-slate-700 shadow-sm">Technical SEO</span>
-                        <span class="text-xs px-3 py-1 rounded-full bg-white border border-slate-200 text-slate-700 shadow-sm">Keyword Ranking</span>
-                    </div>
-                </div>
-
-                <!-- Service 4 -->
-                <div class="glass-card p-10 rounded-3xl border border-slate-200/80 hover:border-cyan-500/40 transition-all group relative overflow-hidden bg-slate-50/50">
-                    <div class="absolute top-0 right-0 w-48 h-48 bg-teal-500/5 rounded-full blur-3xl pointer-events-none group-hover:bg-teal-500/10 transition-colors"></div>
-                    <div class="flex justify-between items-start mb-8">
-                        <span class="text-xs font-mono font-bold text-cyan-600 tracking-widest">04 / SERVICE</span>
-                        <div class="w-12 h-12 rounded-2xl bg-white shadow-sm border border-slate-200 flex items-center justify-center text-teal-600 text-xl group-hover:scale-110 transition-transform">
-                            <i class="fa-solid fa-code"></i>
-                        </div>
-                    </div>
-                    <h3 class="text-2xl font-bold text-slate-900 mb-4 uppercase tracking-wide">WEB</h3>
-                    <p class="text-slate-600 font-light mb-8 text-sm leading-relaxed">
-                        ออกแบบและพัฒนาเว็บไซต์ Corporate, Landing Page และ E-commerce สไตล์ Luxury Minimal โหลดเร็ว ดีไซน์หรูหรา และแปลงผู้เยี่ยมชมให้เป็นลูกค้า
-                    </p>
-                    <div class="flex flex-wrap gap-2 pt-4 border-t border-slate-200/80">
-                        <span class="text-xs px-3 py-1 rounded-full bg-white border border-slate-200 text-slate-700 shadow-sm">Website Design</span>
-                        <span class="text-xs px-3 py-1 rounded-full bg-white border border-slate-200 text-slate-700 shadow-sm">Landing Page</span>
-                        <span class="text-xs px-3 py-1 rounded-full bg-white border border-slate-200 text-slate-700 shadow-sm">E-commerce</span>
-                        <span class="text-xs px-3 py-1 rounded-full bg-white border border-slate-200 text-slate-700 shadow-sm">UI/UX Experience</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="py-14 border-t border-b border-slate-200 bg-slate-50/60 relative">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-                <div class="p-6">
-                    <div class="text-4xl sm:text-6xl font-black gradient-text mb-3">05+</div>
-                    <div class="text-xs sm:text-sm font-semibold tracking-widest text-slate-700 uppercase">Years Experience</div>
-                </div>
-                <div class="p-6">
-                    <div class="text-4xl sm:text-6xl font-black gradient-text mb-3">50+</div>
-                    <div class="text-xs sm:text-sm font-semibold tracking-widest text-slate-700 uppercase">Brands Trusted</div>
-                </div>
-                <div class="p-6">
-                    <div class="text-4xl sm:text-6xl font-black gradient-text mb-3">10+</div>
-                    <div class="text-xs sm:text-sm font-semibold tracking-widest text-slate-700 uppercase">Industries Covered</div>
-                </div>
-                <div class="p-6">
-                    <div class="text-4xl sm:text-6xl font-black gradient-text mb-3">300+</div>
-                    <div class="text-xs sm:text-sm font-semibold tracking-widest text-slate-700 uppercase">Successful Campaigns</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="portfolio" class="py-28 px-6 bg-white">
-        <div class="max-w-7xl mx-auto">
-            <div class="flex flex-col md:flex-row md:items-end justify-between mb-20">
-                <div>
-                    <span class="text-xs uppercase tracking-[0.25em] text-cyan-600 font-bold block mb-4">PORTFOLIO</span>
-                    <h2 class="text-3xl sm:text-5xl font-black text-slate-900 uppercase tracking-tight">SELECTED <span class="gradient-text">WORKS.</span></h2>
-                </div>
-                <p class="text-slate-600 max-w-md font-light mt-6 md:mt-0 text-sm sm:text-base">
-                    ผลงานคัดสรรที่เราภาคภูมิใจ การันตีความสำเร็จและภาพลักษณ์ที่โดดเด่นของแบรนด์ชั้นนำ
-                </p>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
-                <!-- Work 1 -->
-                <div class="group relative rounded-3xl overflow-hidden glass-card border border-slate-200 shadow-sm">
-                    <div class="aspect-[16/11] overflow-hidden bg-slate-100">
-                        <img src="https://placehold.co/1200x800/e2e8f0/059669?text=Lumiere+Luxury+Branding+%26+Web" alt="Lumiere Luxury" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
-                    </div>
-                    <div class="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-slate-900/20 to-transparent opacity-90"></div>
-                    <div class="absolute bottom-0 left-0 right-0 p-8 flex justify-between items-end">
-                        <div>
-                            <span class="text-xs font-mono font-bold text-emerald-400 uppercase tracking-widest mb-2 block">Website & Branding</span>
-                            <h3 class="text-2xl font-bold text-white uppercase">LUMIERE RESIDENCE</h3>
-                        </div>
-                        <div class="w-12 h-12 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center text-white group-hover:bg-cyan-500 group-hover:text-white transition-colors">
-                            <i class="fa-solid fa-arrow-right -rotate-45 group-hover:rotate-0 transition-transform"></i>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Work 2 -->
-                <div class="group relative rounded-3xl overflow-hidden glass-card border border-slate-200 shadow-sm">
-                    <div class="aspect-[16/11] overflow-hidden bg-slate-100">
-                        <img src="https://placehold.co/1200x800/e2e8f0/0891b2?text=Zenith+Performance+Ads+%26+Content" alt="Zenith Performance" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
-                    </div>
-                    <div class="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-slate-900/20 to-transparent opacity-90"></div>
-                    <div class="absolute bottom-0 left-0 right-0 p-8 flex justify-between items-end">
-                        <div>
-                            <span class="text-xs font-mono font-bold text-cyan-400 uppercase tracking-widest mb-2 block">Performance Ads</span>
-                            <h3 class="text-2xl font-bold text-white uppercase">ZENITH WATCHES TH</h3>
-                        </div>
-                        <div class="w-12 h-12 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center text-white group-hover:bg-cyan-500 group-hover:text-white transition-colors">
-                            <i class="fa-solid fa-arrow-right -rotate-45 group-hover:rotate-0 transition-transform"></i>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Work 3 -->
-                <div class="group relative rounded-3xl overflow-hidden glass-card border border-slate-200 shadow-sm">
-                    <div class="aspect-[16/11] overflow-hidden bg-slate-100">
-                        <img src="https://placehold.co/1200x800/e2e8f0/2563eb?text=Aura+Skin+TikTok+Viral+Content" alt="Aura Skin TikTok" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
-                    </div>
-                    <div class="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-slate-900/20 to-transparent opacity-90"></div>
-                    <div class="absolute bottom-0 left-0 right-0 p-8 flex justify-between items-end">
-                        <div>
-                            <span class="text-xs font-mono font-bold text-blue-400 uppercase tracking-widest mb-2 block">Content & TikTok</span>
-                            <h3 class="text-2xl font-bold text-white uppercase">AURA SKIN CLINIC</h3>
-                        </div>
-                        <div class="w-12 h-12 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center text-white group-hover:bg-cyan-500 group-hover:text-white transition-colors">
-                            <i class="fa-solid fa-arrow-right -rotate-45 group-hover:rotate-0 transition-transform"></i>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Work 4 -->
-                <div class="group relative rounded-3xl overflow-hidden glass-card border border-slate-200 shadow-sm">
-                    <div class="aspect-[16/11] overflow-hidden bg-slate-100">
-                        <img src="https://placehold.co/1200x800/e2e8f0/059669?text=Nordic+Living+E-commerce+SEO" alt="Nordic Living SEO" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
-                    </div>
-                    <div class="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-slate-900/20 to-transparent opacity-90"></div>
-                    <div class="absolute bottom-0 left-0 right-0 p-8 flex justify-between items-end">
-                        <div>
-                            <span class="text-xs font-mono font-bold text-emerald-400 uppercase tracking-widest mb-2 block">SEO & E-Commerce</span>
-                            <h3 class="text-2xl font-bold text-white uppercase">NORDIC LIVING</h3>
-                        </div>
-                        <div class="w-12 h-12 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center text-white group-hover:bg-cyan-500 group-hover:text-white transition-colors">
-                            <i class="fa-solid fa-arrow-right -rotate-45 group-hover:rotate-0 transition-transform"></i>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="case-studies" class="py-28 px-6 bg-slate-50/70 border-t border-b border-slate-200">
-        <div class="max-w-7xl mx-auto">
-            <div class="mb-20 text-center max-w-2xl mx-auto">
-                <span class="text-xs uppercase tracking-[0.25em] text-cyan-600 font-bold block mb-4">CASE STUDY / RESULTS</span>
-                <h2 class="text-3xl sm:text-5xl font-black text-slate-900 uppercase tracking-tight">FROM IDEA TO <span class="gradient-text">IMPACT.</span></h2>
-            </div>
-
-            <div class="space-y-12">
-                <!-- Case 1 -->
-                <div class="glass-card p-8 sm:p-12 rounded-3xl border border-slate-200 shadow-sm bg-white">
-                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-                        <div class="lg:col-span-5 space-y-6">
-                            <span class="text-xs font-mono font-bold text-emerald-600 uppercase tracking-widest px-3 py-1 bg-emerald-50 rounded-full inline-block border border-emerald-200">Case Study #01</span>
-                            <h3 class="text-2xl sm:text-3xl font-black text-slate-900 uppercase">LUMIERE RESIDENCE</h3>
-                            <p class="text-slate-600 text-sm font-light leading-relaxed">
-                                ยกระดับแบรนด์คอนโดหรูเจาะกลุ่ม High-Net-Worth ด้วยกลยุทธ์ Full-Funnel Performance Ads ร่วมกับ Cinematic Content ทำให้ปิดยอดขายโครงการได้เร็วกว่าเป้า 3 เท่า
-                            </p>
-                            <div class="grid grid-cols-2 gap-4 pt-4 border-t border-slate-200">
-                                <div>
-                                    <div class="text-2xl font-black gradient-text">6.8x</div>
-                                    <div class="text-xs text-slate-500 uppercase tracking-wider font-semibold">ROAS Achieved</div>
-                                </div>
-                                <div>
-                                    <div class="text-2xl font-black gradient-text">-45%</div>
-                                    <div class="text-xs text-slate-500 uppercase tracking-wider font-semibold">Cost per Lead</div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="lg:col-span-7 space-y-6 bg-slate-50 p-6 sm:p-8 rounded-2xl border border-slate-200">
-                            <div>
-                                <h4 class="text-xs font-bold uppercase tracking-widest text-cyan-700 mb-2"><i class="fa-solid fa-circle-exclamation mr-2"></i> Challenge</h4>
-                                <p class="text-sm text-slate-700 font-light">กลุ่มเป้าหมายระดับบนมีความคาดหวังสูง การยิงแอดรูปแบบเดิมไม่สามารถดึงดูดใจได้ และมี Cost per Lead สูงเกินไป</p>
-                            </div>
-                            <div>
-                                <h4 class="text-xs font-bold uppercase tracking-widest text-cyan-700 mb-2"><i class="fa-solid fa-wand-magic-sparkles mr-2"></i> What We Did</h4>
-                                <p class="text-sm text-slate-700 font-light">รีแบรนด์คอนเทนต์ภาพนิ่งสู่ Video Cinematic เล่าเรื่องไลฟ์สไตล์เหนือระดับ ปรับแต่ง Landing Page ใหม่ให้พรีเมียม และเซ็ตกลุ่มเป้าหมาย Custom Audience เชิงลึก</p>
-                            </div>
-                            <div>
-                                <h4 class="text-xs font-bold uppercase tracking-widest text-cyan-700 mb-2"><i class="fa-solid fa-trophy mr-2"></i> Results</h4>
-                                <p class="text-sm text-slate-700 font-light">ยอดจองห้องพักผ่อนและนัดหมายเยี่ยมชมโครงการเพิ่มขึ้น 340% ภายใน 60 วันแรก</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Case 2 -->
-                <div class="glass-card p-8 sm:p-12 rounded-3xl border border-slate-200 shadow-sm bg-white">
-                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-                        <div class="lg:col-span-5 space-y-6">
-                            <span class="text-xs font-mono font-bold text-cyan-600 uppercase tracking-widest px-3 py-1 bg-cyan-50 rounded-full inline-block border border-cyan-200">Case Study #02</span>
-                            <h3 class="text-2xl sm:text-3xl font-black text-slate-900 uppercase">ZENITH WATCHES</h3>
-                            <p class="text-slate-600 text-sm font-light leading-relaxed">
-                                ขยายตลาดอีคอมเมิร์ซสินค้าลักชัวรีผ่าน Omni-channel Performance และ TikTok Viral Strategy เจาะกลุ่มคนรุ่นใหม่ผู้มีกำลังซื้อสูง
-                            </p>
-                            <div class="grid grid-cols-2 gap-4 pt-4 border-t border-slate-200">
-                                <div>
-                                    <div class="text-2xl font-black gradient-text">4.5M+</div>
-                                    <div class="text-xs text-slate-500 uppercase tracking-wider font-semibold">Total Reach</div>
-                                </div>
-                                <div>
-                                    <div class="text-2xl font-black gradient-text">320%</div>
-                                    <div class="text-xs text-slate-500 uppercase tracking-wider font-semibold">Sales Growth</div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="lg:col-span-7 space-y-6 bg-slate-50 p-6 sm:p-8 rounded-2xl border border-slate-200">
-                            <div>
-                                <h4 class="text-xs font-bold uppercase tracking-widest text-cyan-700 mb-2"><i class="fa-solid fa-circle-exclamation mr-2"></i> Challenge</h4>
-                                <p class="text-sm text-slate-700 font-light">แบรนด์นาฬิกาสุดหรูต้องการขยายฐานลูกค้าสู่กลุ่ม Gen Z และ Millennials ที่นิยมซื้อสินค้าผ่านช่องทางออนไลน์</p>
-                            </div>
-                            <div>
-                                <h4 class="text-xs font-bold uppercase tracking-widest text-cyan-700 mb-2"><i class="fa-solid fa-wand-magic-sparkles mr-2"></i> What We Did</h4>
-                                <p class="text-sm text-slate-700 font-light">สร้างสรรค์ TikTok Spark Ads ร่วมกับ Key Opinion Leaders (KOLs) และปรับแต่งระบบ E-commerce Conversion Tracking ให้แม่นยำ</p>
-                            </div>
-                            <div>
-                                <h4 class="text-xs font-bold uppercase tracking-widest text-cyan-700 mb-2"><i class="fa-solid fa-trophy mr-2"></i> Results</h4>
-                                <p class="text-sm text-slate-700 font-light">ยอดขายออนไลน์โตขึ้นกว่า 320% ในไตรมาสเดียว พร้อมแฮชแท็กแบรนด์ติดเทรนด์ TikTok</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="process" class="py-28 px-6 bg-white">
-        <div class="max-w-7xl mx-auto">
-            <div class="mb-20 text-center max-w-2xl mx-auto">
-                <span class="text-xs uppercase tracking-[0.25em] text-cyan-600 font-bold block mb-4">OUR PROCESS</span>
-                <h2 class="text-3xl sm:text-5xl font-black text-slate-900 uppercase tracking-tight">STRATEGY BEFORE <span class="gradient-text">EXECUTION.</span></h2>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-5 gap-6">
-                <!-- Step 1 -->
-                <div class="glass-card p-6 rounded-3xl border border-slate-200 relative group hover:border-cyan-500 transition-all bg-slate-50/50">
-                    <span class="text-3xl font-black text-cyan-600/30 block mb-6 font-mono">01</span>
-                    <h3 class="text-lg font-bold text-slate-900 uppercase mb-2">DISCOVER</h3>
-                    <p class="text-xs text-slate-600 font-light leading-relaxed">วิเคราะห์ธุรกิจ กลุ่มเป้าหมาย คู่แข่ง และปัญหาที่แท้จริงอย่างลึกซึ้ง</p>
-                </div>
-                <!-- Step 2 -->
-                <div class="glass-card p-6 rounded-3xl border border-slate-200 relative group hover:border-cyan-500 transition-all bg-slate-50/50">
-                    <span class="text-3xl font-black text-cyan-600/30 block mb-6 font-mono">02</span>
-                    <h3 class="text-lg font-bold text-slate-900 uppercase mb-2">STRATEGY</h3>
-                    <p class="text-xs text-slate-600 font-light leading-relaxed">วางแผนทิศทาง คอนเทนต์ ช่องทาง และงบประมาณให้เกิดความคุ้มค่าสูงสุด</p>
-                </div>
-                <!-- Step 3 -->
-                <div class="glass-card p-6 rounded-3xl border border-slate-200 relative group hover:border-cyan-500 transition-all bg-slate-50/50">
-                    <span class="text-3xl font-black text-cyan-600/30 block mb-6 font-mono">03</span>
-                    <h3 class="text-lg font-bold text-slate-900 uppercase mb-2">CREATE</h3>
-                    <p class="text-xs text-slate-600 font-light leading-relaxed">ผลิตชิ้นงาน ดีไซน์ และข้อความโฆษณาที่สวยงาม ดูแพง และทรงพลัง</p>
-                </div>
-                <!-- Step 4 -->
-                <div class="glass-card p-6 rounded-3xl border border-slate-200 relative group hover:border-cyan-500 transition-all bg-slate-50/50">
-                    <span class="text-3xl font-black text-cyan-600/30 block mb-6 font-mono">04</span>
-                    <h3 class="text-lg font-bold text-slate-900 uppercase mb-2">LAUNCH</h3>
-                    <p class="text-xs text-slate-600 font-light leading-relaxed">เผยแพร่แคมเปญสู่กลุ่มเป้าหมาย เปิดเว็บไซต์ และเริ่มระบบยิงแอด</p>
-                </div>
-                <!-- Step 5 -->
-                <div class="glass-card p-6 rounded-3xl border border-slate-200 relative group hover:border-cyan-500 transition-all bg-slate-50/50">
-                    <span class="text-3xl font-black text-cyan-600/30 block mb-6 font-mono">05</span>
-                    <h3 class="text-lg font-bold text-slate-900 uppercase mb-2">OPTIMIZE</h3>
-                    <p class="text-xs text-slate-600 font-light leading-relaxed">ติดตามผล ปรับแต่งแคมเปญแบบเรียลไทม์เพื่อผลลัพธ์ที่ดีขึ้นเรื่อย ๆ</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="py-28 px-6 bg-slate-50/70 border-t border-b border-slate-200">
-        <div class="max-w-7xl mx-auto">
-            <div class="mb-20 text-center max-w-2xl mx-auto">
-                <span class="text-xs uppercase tracking-[0.25em] text-cyan-600 font-bold block mb-4">TESTIMONIALS</span>
-                <h2 class="text-3xl sm:text-5xl font-black text-slate-900 uppercase tracking-tight">WHAT OUR <span class="gradient-text">CLIENTS SAY.</span></h2>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <!-- Testimonial 1 -->
-                <div class="glass-card p-8 rounded-3xl border border-slate-200 flex flex-col justify-between bg-white shadow-sm">
-                    <div>
-                        <div class="text-amber-500 mb-6 flex space-x-1">
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                        </div>
-                        <p class="text-slate-700 text-sm font-light leading-relaxed mb-8">
-                            "GO TO TARGET เปลี่ยนภาพลักษณ์แบรนด์เราให้ดูพรีเมียมและสร้างยอดขายเติบโตอย่างก้าวกระโดด ทีมงานมีความเป็นมืออาชีพและเข้าใจลึกซึ้งในเรื่อง Performance Marketing"
-                        </p>
-                    </div>
-                    <div class="flex items-center space-x-4 pt-6 border-t border-slate-200">
-                        <div class="w-12 h-12 rounded-full bg-slate-100 border border-slate-200 flex items-center justify-center font-bold text-slate-800">
-                            <span>LR</span>
-                        </div>
-                        <div>
-                            <h4 class="text-sm font-bold text-slate-900">คุณณฐาภัทร วงศ์สุวรรณ</h4>
-                            <p class="text-xs text-slate-500">Managing Director, Lumiere Residence</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Testimonial 2 -->
-                <div class="glass-card p-8 rounded-3xl border border-slate-200 flex flex-col justify-between bg-white shadow-sm">
-                    <div>
-                        <div class="text-amber-500 mb-6 flex space-x-1">
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                        </div>
-                        <p class="text-slate-700 text-sm font-light leading-relaxed mb-8">
-                            "การทำ SEO และ Performance Ads กับ GO TO TARGET ทำให้แบรนด์เราติดหน้าแรก Google และมีลูกค้าติดต่อเข้ามาอย่างสม่ำเสมอ คุ้มค่าการลงทุนมากครับ"
-                        </p>
-                    </div>
-                    <div class="flex items-center space-x-4 pt-6 border-t border-slate-200">
-                        <div class="w-12 h-12 rounded-full bg-slate-100 border border-slate-200 flex items-center justify-center font-bold text-slate-800">
-                            <span>ZW</span>
-                        </div>
-                        <div>
-                            <h4 class="text-sm font-bold text-slate-900">คุณอเล็กซ์ ธีรภัทร</h4>
-                            <p class="text-xs text-slate-500">Marketing Head, Zenith Watches TH</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Testimonial 3 -->
-                <div class="glass-card p-8 rounded-3xl border border-slate-200 flex flex-col justify-between bg-white shadow-sm">
-                    <div>
-                        <div class="text-amber-500 mb-6 flex space-x-1">
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                        </div>
-                        <p class="text-slate-700 text-sm font-light leading-relaxed mb-8">
-                            "ประทับใจงานดีไซน์เว็บไซต์และคอนเทนต์ TikTok มากครับ ทีมงานใส่ใจในทุกรายละเอียด ทำให้แบรนด์ดูแพงและทันสมัยตรงใจกลุ่มเป้าหมายเป๊ะ ๆ"
-                        </p>
-                    </div>
-                    <div class="flex items-center space-x-4 pt-6 border-t border-slate-200">
-                        <div class="w-12 h-12 rounded-full bg-slate-100 border border-slate-200 flex items-center justify-center font-bold text-slate-800">
-                            <span>AS</span>
-                        </div>
-                        <div>
-                            <h4 class="text-sm font-bold text-slate-900">พญ.ศิรินทร์ อุดมศักดิ์</h4>
-                            <p class="text-xs text-slate-500">Founder, Aura Skin Clinic</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="contact" class="py-20 px-6 relative overflow-hidden text-center bg-slate-900 text-white">
-        <!-- Glow background -->
-        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[500px] bg-gradient-to-r from-emerald-500/20 via-cyan-500/20 to-blue-500/20 rounded-full blur-[160px] pointer-events-none"></div>
-
-        <div class="max-w-4xl mx-auto relative z-10">
-            <span class="text-xs uppercase tracking-[0.25em] text-cyan-400 font-bold block mb-4">LET'S TALK</span>
-            <h2 class="text-4xl sm:text-6xl md:text-7xl font-black text-white uppercase tracking-tight mb-6">
-                GOT A BRAND <br>TO <span class="gradient-text">GROW?</span>
-            </h2>
-            <p class="text-slate-300 text-lg sm:text-xl font-light max-w-xl mx-auto mb-12">
-                Let's turn your next idea into something people remember.
-            </p>
-
-            <a href="https://www.facebook.com/Gototarget.Official?locale=th_TH" class="inline-flex items-center space-x-4 px-10 py-5 rounded-full text-base font-bold uppercase tracking-wider text-white gradient-bg hover:opacity-95 transition-all shadow-2xl shadow-cyan-500/20 group">
-                <span>START A PROJECT</span>
-                <i class="fa-solid fa-arrow-right group-hover:translate-x-2 transition-transform"></i>
-            </a>
-
-            <!-- Contact quick info -->
-            <div class="mt-16 flex flex-wrap justify-center gap-8 text-sm text-slate-400">
-                <div><i class="fa-solid fa-envelope mr-2 text-cyan-400"></i> gototarget.marketing@gmail.com </div>
-                <div><i class="fa-solid fa-phone mr-2 text-cyan-400"></i> 097-919-1941</div>
-                <div><i class="fa-solid fa-location-dot mr-2 text-cyan-400"></i> Chiangmai, Thailand</div>
-            </div>
-        </div>
-    </section>
-
-    <footer class="py-16 px-6 border-t border-slate-200 bg-white text-sm text-slate-600">
-        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
-            <div class="flex flex-col items-center md:items-start space-y-2">
-                <div class="flex items-center space-x-3">
-                    <a href="#" class="flex items-center group">
-    <img src="./logo.png" alt="GO TO TARGET" class="h-12 w-auto object-contain">
-</a>
-                    <span class="text-lg font-black tracking-wider uppercase text-slate-900">GO TO <span class="gradient-text">TARGET</span></span>
-                </div>
-                <p class="text-xs text-slate-500">Digital Marketing That Delivers Results</p>
-            </div>
-
-            <div class="flex flex-wrap justify-center gap-6 text-xs uppercase tracking-widest font-medium">
-                <a href="#services" class="hover:text-cyan-600 transition-colors">Services</a>
-                <a href="#portfolio" class="hover:text-cyan-600 transition-colors">Work</a>
-                <a href="#case-studies" class="hover:text-cyan-600 transition-colors">Case Studies</a>
-
-            </div>
-
-           <div class="header-social-links">
-
-    <!-- Facebook -->
-    <a
-        href="https://www.facebook.com/Gototarget.Official?locale=th_TH"
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label="Facebook"
-    >
-        <span>f</span>
-    </a>
-
-    <!-- LINE -->
-    <a
-        href="https://lin.ee/nt4KJdF"
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label="LINE"
-    >
-        <span>LINE</span>
-    </a>
-
-    <!-- Email -->
-    <a
-        href="mailto:gototarget.marketing@gmail.com"
-        aria-label="Email"
-    >
-        <span>✉</span>
-    </a>
-
-</div>
-        </div>
-
-        <div class="max-w-7xl mx-auto mt-12 pt-8 border-t border-slate-100 flex flex-col sm:flex-row justify-between items-center text-xs text-slate-500">
-            <p>&copy;  Go To Target Agency. All rights reserved.</p>
+    <!-- E-Voucher Modal (Shown on completion) -->
+    <div id="voucherModal" class="fixed inset-0 z-50 bg-khamwan-deepBrown/80 backdrop-blur-md flex items-center justify-center p-4 opacity-0 pointer-events-none transition-all duration-300">
+        <div class="max-w-md w-full bg-white rounded-3xl shadow-2xl overflow-hidden border border-amber-300/40 transform scale-95 transition-all duration-300" id="modalContent">
             
+            <!-- Modal Header / Decorative Banner -->
+            <div class="bg-gradient-to-r from-khamwan-brown via-amber-950 to-khamwan-deepBrown text-white p-6 text-center relative overflow-hidden">
+                <div class="absolute -top-10 -right-10 w-32 h-32 bg-amber-400/20 rounded-full blur-2xl"></div>
+                <div class="w-16 h-16 rounded-full bg-emerald-500 text-white text-2xl flex items-center justify-center mx-auto mb-3 shadow-lg border-2 border-white animate-bounce">
+                    <i class="fa-solid fa-check"></i>
+                </div>
+                <h3 class="text-2xl font-bold text-amber-200">ขอบคุณสำหรับความคิดเห็น!</h3>
+                <p class="text-xs text-amber-100/80 mt-1">ท่านได้รับสิทธิ์คูปองอาหารฟรีเรียบร้อยแล้ว</p>
+            </div>
+
+            <!-- Ticket Section -->
+            <div class="p-6 bg-amber-50/50">
+                
+                <!-- Ticket Box -->
+                <div class="coupon-ticket border-2 border-dashed border-amber-300 rounded-2xl p-5 text-center shadow-md relative bg-white">
+                    <div class="text-[10px] tracking-widest text-amber-800 font-bold uppercase mb-1">E-VOUCHER / สิทธิพิเศษเฉพาะคุณ</div>
+                    <h4 class="text-xl font-extrabold text-khamwan-brown">ฟรี! ยำเกี๊ยวกรอบ 1 จาน</h4>
+                    <p class="text-xs text-gray-500 mt-0.5">มูลค่า 120.- (สำหรับการใช้บริการครั้งถัดไป)</p>
+
+                    <!-- Food Thumbnail in Ticket -->
+                    <div class="my-3 w-28 h-28 mx-auto rounded-full overflow-hidden border-2 border-amber-400 shadow-inner">
+                        <img src="https://images.unsplash.com/photo-1569718212165-3a8278d5f624?auto=format&fit=crop&w=400&q=80" 
+                             alt="ยำเกี๊ยวกรอบ" 
+                             class="w-full h-full object-cover">
+                    </div>
+
+                    <!-- Voucher Code & Details -->
+                    <div class="bg-amber-50 p-3 rounded-xl border border-amber-200/80 my-3">
+                        <div class="text-[11px] text-gray-500">รหัสคูปองของคุณ</div>
+                        <div id="voucherCode" class="text-2xl font-mono font-black text-amber-800 tracking-wider">KW-98421</div>
+                        <div class="text-[10px] text-amber-700 mt-1 font-medium" id="voucherUserDetail">
+                            ลูกค้า: คุณ... | เบอร์: ...
+                        </div>
+                    </div>
+
+                    <!-- Barcode simulation -->
+                    <div class="flex justify-center items-center gap-1 h-8 opacity-70 my-2">
+                        <div class="w-1 h-full bg-black"></div>
+                        <div class="w-2 h-full bg-black"></div>
+                        <div class="w-0.5 h-full bg-black"></div>
+                        <div class="w-1.5 h-full bg-black"></div>
+                        <div class="w-3 h-full bg-black"></div>
+                        <div class="w-1 h-full bg-black"></div>
+                        <div class="w-2 h-full bg-black"></div>
+                        <div class="w-0.5 h-full bg-black"></div>
+                        <div class="w-2 h-full bg-black"></div>
+                        <div class="w-1 h-full bg-black"></div>
+                    </div>
+
+                    <div class="text-[10px] text-gray-400 mt-2">
+                        * แสดงหน้าจอนี้แก่พนักงาน ครัวคำหวาน สาขา สันผีเสื้อ เพื่อรับสิทธิ์
+                        <br>หมดอายุ: <span id="expireDate" class="font-bold text-gray-600">--/--/----</span>
+                    </div>
+                </div>
+
+                <!-- Action Buttons -->
+                <div class="mt-6 space-y-2">
+                    <button type="button" onclick="copyVoucherInfo()" class="w-full py-3 rounded-xl gold-btn-gradient text-khamwan-deepBrown font-bold text-sm shadow flex items-center justify-center gap-2 hover:opacity-95">
+                        <i class="fa-regular fa-copy"></i>
+                        <span>คัดลอกรหัสคูปอง / แคปหน้าจอเพื่อบันทึก</span>
+                    </button>
+                    <button type="button" onclick="closeVoucherModal()" class="w-full py-2.5 rounded-xl border border-gray-300 text-gray-600 font-medium text-xs hover:bg-gray-100 transition">
+                        ปิดหน้าต่างนี้
+                    </button>
+                </div>
+
+            </div>
+
         </div>
-    </footer>
+    </div>
+
+    <!-- Toast Alert Notification -->
+    <div id="toast" class="fixed bottom-5 left-1/2 -translate-x-1/2 z-50 bg-gray-900 text-white px-5 py-3 rounded-full text-xs font-medium shadow-2xl opacity-0 transition-opacity duration-300 pointer-events-none flex items-center gap-2">
+        <i class="fa-solid fa-circle-check text-emerald-400"></i>
+        <span id="toastMsg">คัดลอกรหัสเรียบร้อยแล้ว</span>
+    </div>
 
     <script>
-        // ===== Client Logo Carousel =====
-        (() => {
-            const pages = document.getElementById('client-pages');
-            const viewport = document.getElementById('client-viewport');
-            const dots = document.getElementById('client-dots');
-            const prev = document.getElementById('client-prev');
-            const next = document.getElementById('client-next');
-
-            if (!pages || !viewport || !dots || !prev || !next) return;
-
-            const logos = Array.from(pages.querySelectorAll('.client-logo-card'));
-            const perPage = 12;
-            let current = 0;
-            let startX = 0;
-            let deltaX = 0;
-            let autoTimer;
-
-            // Build pages: 12 logos per page.
-            pages.innerHTML = '';
-            for (let i = 0; i < logos.length; i += perPage) {
-                const page = document.createElement('div');
-                page.className = 'client-page';
-                logos.slice(i, i + perPage).forEach(logo => page.appendChild(logo));
-                pages.appendChild(page);
-            }
-
-            const pageCount = pages.children.length;
-
-            if (pageCount <= 1) {
-                prev.style.display = 'none';
-                next.style.display = 'none';
-                dots.style.display = 'none';
-            }
-
-            for (let i = 0; i < pageCount; i++) {
-                const dot = document.createElement('button');
-                dot.type = 'button';
-                dot.className = 'client-dot' + (i === 0 ? ' active' : '');
-                dot.setAttribute('aria-label', `Go to client page ${i + 1}`);
-                dot.addEventListener('click', () => goTo(i));
-                dots.appendChild(dot);
-            }
-
-            function goTo(index) {
-                current = (index + pageCount) % pageCount;
-                pages.style.transform = `translateX(-${current * 100}%)`;
-
-                Array.from(dots.children).forEach((dot, i) => {
-                    dot.classList.toggle('active', i === current);
-                });
-            }
-
-            prev.addEventListener('click', () => goTo(current - 1));
-            next.addEventListener('click', () => goTo(current + 1));
-
-            // Swipe left/right on mobile and trackpad.
-            viewport.addEventListener('touchstart', (e) => {
-                startX = e.touches[0].clientX;
-                deltaX = 0;
-            }, { passive: true });
-
-            viewport.addEventListener('touchmove', (e) => {
-                deltaX = e.touches[0].clientX - startX;
-            }, { passive: true });
-
-            viewport.addEventListener('touchend', () => {
-                if (Math.abs(deltaX) > 45) {
-                    goTo(deltaX < 0 ? current + 1 : current - 1);
-                    restartAuto();
+        // Select All "Yes" helper function
+        function selectAllYes() {
+            for (let i = 1; i <= 17; i++) {
+                const yesRadio = document.getElementById(`q${i}_yes`);
+                if (yesRadio) {
+                    yesRadio.checked = true;
                 }
-                deltaX = 0;
-            }, { passive: true });
+            }
+            showToast('เลือก "ใช่" ครบทุก 17 ข้อเรียบร้อยแล้ว');
+        }
 
-            // Mouse drag on desktop.
-            let mouseDown = false;
-            let mouseStart = 0;
+        // Handle Form Submission
+        function handleFormSubmit(event) {
+            event.preventDefault();
 
-            viewport.addEventListener('mousedown', (e) => {
-                mouseDown = true;
-                mouseStart = e.clientX;
-            });
+            const fullName = document.getElementById('fullName').value.trim() || 'ลูกค้าผู้มีเกียรติ';
+            const phone = document.getElementById('phone').value.trim();
 
-            window.addEventListener('mouseup', (e) => {
-                if (!mouseDown) return;
-                const move = e.clientX - mouseStart;
-                if (Math.abs(move) > 55) {
-                    goTo(move < 0 ? current + 1 : current - 1);
-                    restartAuto();
-                }
-                mouseDown = false;
-            });
-
-            function startAuto() {
-                if (pageCount <= 1) return;
-                autoTimer = setInterval(() => goTo(current + 1), 6500);
+            if (!phone) {
+                showToast('กรุณากรอกเบอร์โทรศัพท์');
+                document.getElementById('phone').focus();
+                return;
             }
 
-            function restartAuto() {
-                clearInterval(autoTimer);
-                startAuto();
-            }
+            // Generate Random Code
+            const randomNum = Math.floor(1000 + Math.random() * 9000);
+            const voucherCode = `KW-${randomNum}`;
 
-            startAuto();
-        })();
-
-        // Toggle mobile menu
-        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-        const mobileMenu = document.getElementById('mobile-menu');
-
-        mobileMenuBtn.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-        });
-
-        // Close mobile menu on link click
-        mobileMenu.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', () => {
-                mobileMenu.classList.add('hidden');
+            // Calculate Expiration Date (30 Days from today)
+            const today = new Date();
+            today.setDate(today.getDate() + 30);
+            const dateStr = today.toLocaleDateString('th-TH', {
+                year: 'numeric',
+                month: 'short',
+                day: 'numeric'
             });
-        });
 
-        // Navbar blur shadow effect on scroll
-        window.addEventListener('scroll', () => {
-            const navbar = document.getElementById('navbar');
-            if (window.scrollY > 50) {
-                navbar.classList.add('shadow-md', 'border-slate-300');
-            } else {
-                navbar.classList.remove('shadow-md', 'border-slate-300');
-            }
-        });
+            // Set Voucher Details
+            document.getElementById('voucherCode').innerText = voucherCode;
+            document.getElementById('voucherUserDetail').innerText = `คุณ: ${fullName} | โทร: ${phone}`;
+            document.getElementById('expireDate').innerText = dateStr;
 
-function toggleFloatingSound() {
-    const video = document.querySelector('video');
-    const button = document.getElementById('floatingSoundButton');
+            // Show Modal with Animation
+            const modal = document.getElementById('voucherModal');
+            const content = document.getElementById('modalContent');
 
-    if (!video) return;
+            modal.classList.remove('opacity-0', 'pointer-events-none');
+            content.classList.remove('scale-95');
+            content.classList.add('scale-100');
+        }
 
-    if (video.muted) {
-        video.muted = false;
-        button.innerHTML = '🔊 ปิดเสียง';
-    } else {
-        video.muted = true;
-        button.innerHTML = '🔇 ฟังเพลง';
-    }
-}
+        // Close Modal
+        function closeVoucherModal() {
+            const modal = document.getElementById('voucherModal');
+            const content = document.getElementById('modalContent');
 
-function toggleContactMenu() {
-  const menu = document.getElementById('contactMenu');
-  menu.classList.toggle('show');
-}
-        
+            content.classList.remove('scale-100');
+            content.classList.add('scale-95');
+            modal.classList.add('opacity-0', 'pointer-events-none');
+        }
+
+        // Copy Voucher Code to Clipboard
+        function copyVoucherInfo() {
+            const code = document.getElementById('voucherCode').innerText;
+            const textToCopy = `คูปองฟรี! ยำเกี๊ยวกรอบ ครัวคำหวาน สาขา สันผีเสื้อ [รหัส: ${code}]`;
+            
+            // Clipboard fallback as per guidelines
+            const dummy = document.createElement("textarea");
+            document.body.appendChild(dummy);
+            dummy.value = textToCopy;
+            dummy.select();
+            document.execCommand("copy");
+            document.body.removeChild(dummy);
+
+            showToast('คัดลอกรหัสคูปองเรียบร้อยแล้ว!');
+        }
+
+        // Show Custom Toast
+        function showToast(msg) {
+            const toast = document.getElementById('toast');
+            const toastMsg = document.getElementById('toastMsg');
+            toastMsg.innerText = msg;
+
+            toast.classList.remove('opacity-0', 'pointer-events-none');
+            setTimeout(() => {
+                toast.classList.add('opacity-0', 'pointer-events-none');
+            }, 3000);
+        }
     </script>
-    <!-- ปุ่ม Facebook Messenger -->
-<div class="floating-contact">
-
-  <button
-    class="floating-contact-button"
-    onclick="toggleContactMenu()"
-  >
-    💬 ติดต่อเรา
-  </button>
-
-  <div id="contactMenu" class="contact-menu">
-
-  <a
-  href="https://www.facebook.com/Gototarget.Official"
-  target="_blank"
-  rel="noopener noreferrer"
-  class="contact-option"
->
-  <img
-    src="/facebook.png"
-    alt="Facebook"
-    class="contact-icon"
-  >
-  Facebook
-</a>
-
-    <a
-    href="tel:+66979191941"
-    class="contact-option phone-option"
->
-      <span class="phone-icon">📞</span>
-      โทรหาเรา
-    </a>
-
-  </div>
-
-</div>
-<!-- Target Activation V2 -->
-<div id="target-intro">
-
-  <div class="target-logo-wrap">
-
-    <!-- Target Rings -->
-    <div class="target-ring target-ring-1"></div>
-    <div class="target-ring target-ring-2"></div>
-    <div class="target-ring target-ring-3"></div>
-
-    <!-- Digital Points -->
-    <div class="target-point target-point-1"></div>
-    <div class="target-point target-point-2"></div>
-    <div class="target-point target-point-3"></div>
-    <div class="target-point target-point-4"></div>
-    <div class="target-point target-point-5"></div>
-
-    <!-- Center -->
-    <div class="target-center"></div>
-
-    <!-- Company Logo -->
-    <img
-      src="/logo.png"
-      alt="GO TO TARGET"
-      class="target-company-logo"
-    >
-
-  </div>
-
-</div>
-    
 </body>
 </html>
