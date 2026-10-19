@@ -3,14 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GO TO TARGET | Digital Marketing Agency</title>
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script><!DOCTYPE html>
-<html lang="th" class="scroll-smooth">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GO TO TARGET | Digital Agency</title>
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -96,138 +88,95 @@
             background: #0891b2;
         }
 
-        /* ===== Client Logos - Responsive Grid Carousel ===== */
+        /* ===== Premium Client Logo Marquee (targeted client-section update) ===== */
         .client-showcase {
             position: relative;
             overflow: hidden;
             background:
-                radial-gradient(circle at 50% 0%, rgba(8,145,178,.045), transparent 42%),
+                radial-gradient(circle at 50% 0%, rgba(8,145,178,.06), transparent 48%),
                 #f8fafc;
         }
 
         .client-carousel {
-            position: relative;
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
             margin-top: 36px;
+            overflow: hidden;
         }
 
         .client-viewport {
             position: relative;
             overflow: hidden;
             width: 100%;
+            padding: 7px 0;
+            -webkit-mask-image: linear-gradient(to right, transparent, #000 3%, #000 97%, transparent);
+            mask-image: linear-gradient(to right, transparent, #000 3%, #000 97%, transparent);
         }
 
-        .client-pages {
+        .client-track {
             display: flex;
-            width: 100%;
-            transition: transform .55s cubic-bezier(.22,.61,.36,1);
+            align-items: center;
+            gap: 20px;
+            width: max-content;
             will-change: transform;
-            touch-action: pan-y;
+            animation: clientMoveLeft 48s linear infinite;
         }
 
-        .client-page {
-            flex: 0 0 100%;
-            width: 100%;
-            display: grid;
-            grid-template-columns: repeat(6, minmax(0, 1fr));
-            grid-template-rows: repeat(2, minmax(105px, auto));
-            column-gap: 18px;
-            row-gap: 22px;
-            align-items: center;
-            padding: 8px 34px 12px;
-            box-sizing: border-box;
+        .client-track.reverse {
+            animation-name: clientMoveRight;
+            animation-duration: 52s;
         }
 
         .client-logo-card {
+            box-sizing: border-box;
+            flex: 0 0 195px;
+            width: 195px;
+            height: 108px;
             min-width: 0;
-            height: 112px;
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 4px 8px;
-            background: transparent;
-            border: none;
-            border-radius: 0;
-            box-shadow: none;
-            transition: transform .25s ease, opacity .25s ease;
+            padding: 15px 18px;
+            background: #fff;
+            border: 1px solid #e7edf3;
+            border-radius: 18px;
+            box-shadow: 0 5px 18px rgba(15,23,42,.045);
+            transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
         }
 
         .client-logo-card:hover {
-            transform: translateY(-3px) scale(1.025);
+            transform: translateY(-3px);
+            border-color: rgba(8,145,178,.3);
+            box-shadow: 0 10px 26px rgba(15,23,42,.09);
         }
 
         .client-logo-card img {
+            display: block;
             width: 100%;
-            max-width: 190px;
-            height: 82px;
+            height: 100%;
+            max-width: 100%;
+            max-height: 100%;
             object-fit: contain;
             object-position: center;
-            display: block;
             filter: contrast(1.04) saturate(1.03);
             image-rendering: auto;
         }
 
-        .client-controls {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 14px;
-            margin-top: 18px;
+        @keyframes clientMoveLeft {
+            from { transform: translateX(0); }
+            to   { transform: translateX(-50%); }
         }
 
-        .client-arrow {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            z-index: 5;
-            width: 40px;
-            height: 40px;
-            border: 0;
-            border-radius: 999px;
-            background: rgba(255,255,255,.92);
-            color: #0891b2;
-            box-shadow: 0 6px 18px rgba(15,23,42,.10);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            transition: .2s ease;
+        @keyframes clientMoveRight {
+            from { transform: translateX(-50%); }
+            to   { transform: translateX(0); }
         }
 
-        .client-arrow:hover {
-            background: #0891b2;
-            color: #fff;
-            transform: translateY(-50%) scale(1.05);
+        .client-viewport:hover .client-track {
+            animation-play-state: paused;
         }
 
-        .client-arrow.prev { left: 0; }
-        .client-arrow.next { right: 0; }
-
-        .client-dots {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 8px;
-            margin-top: 14px;
-        }
-
-        .client-dot {
-            width: 8px;
-            height: 8px;
-            padding: 0;
-            border: 0;
-            border-radius: 50%;
-            background: #cbd5e1;
-            cursor: pointer;
-            transition: .25s ease;
-        }
-
-        .client-dot.active {
-            width: 10px;
-            height: 10px;
-            background: #0891b2;
-        }
-
-        /* Thai text in this section: larger, darker and easier to read */
         .client-showcase .client-thai-title {
             color: #111827;
             font-family: 'Prompt', 'Inter', sans-serif;
@@ -249,41 +198,26 @@
             }
 
             .client-carousel {
+                gap: 12px;
                 margin-top: 28px;
             }
 
-.client-arrow {
-    display: none !important;
-}
-            
-            .client-page {
-                grid-template-columns: repeat(4, minmax(0, 1fr));
-                grid-template-rows: repeat(3, minmax(76px, auto));
-                column-gap: 8px;
-                row-gap: 14px;
-                padding: 4px 22px 8px;
+            .client-track {
+                gap: 12px;
+                animation-duration: 38s;
+            }
+
+            .client-track.reverse {
+                animation-duration: 42s;
             }
 
             .client-logo-card {
-                height: 78px;
-                padding: 2px 3px;
+                flex-basis: 145px;
+                width: 145px;
+                height: 86px;
+                padding: 12px;
+                border-radius: 15px;
             }
-
-            .client-logo-card img {
-                width: 100%;
-                max-width: 125px;
-                height: 62px;
-            }
-
-            .client-arrow {
-                width: 34px;
-                height: 34px;
-                font-size: 13px;
-                background: rgba(255,255,255,.96);
-            }
-
-            .client-arrow.prev { left: -2px; }
-            .client-arrow.next { right: -2px; }
 
             .client-showcase .client-thai-title {
                 font-size: 17px;
@@ -298,22 +232,12 @@
                 font-size: 14px;
                 letter-spacing: .12em;
             }
-
-            .client-controls {
-                margin-top: 12px;
-            }
-        }
-
-        @media (min-width: 768px) and (max-width: 1100px) {
-            .client-page {
-                grid-template-columns: repeat(4, minmax(0, 1fr));
-                grid-template-rows: repeat(3, minmax(100px, auto));
-            }
         }
 
         @media (prefers-reduced-motion: reduce) {
-            .client-pages {
-                transition: none;
+            .client-track {
+                animation: none;
+                transform: none;
             }
         }
 
@@ -1023,57 +947,42 @@
             </div>
 
             <div class="client-carousel" aria-label="Client logos">
-                <button class="client-arrow prev" id="client-prev" type="button" aria-label="Previous clients">
-                    <i class="fa-solid fa-chevron-left"></i>
-                </button>
-
-                <div class="client-viewport" id="client-viewport">
-                    <div class="client-pages" id="client-pages">
-
-                        <!-- Page content is generated from these client logos.
-                             12 logos = 1 page: 6x2 on desktop / 4x3 on mobile. -->
-
-                        <div class="client-logo-card"><img src="./ram.png" alt="RAM Hospital"></div>
-                        <div class="client-logo-card"><img src="./central.png" alt="Central Chiangmai"></div>
-                        <div class="client-logo-card"><img src="./major.png" alt="Major"></div>
-                        <div class="client-logo-card"><img src="./im.png" alt="IM-MEE"></div>
-                        <div class="client-logo-card"><img src="./noodle.png" alt="Noodle"></div>
-                        <div class="client-logo-card"><img src="./kk.png" alt="KK"></div>
-                        <div class="client-logo-card"><img src="./wella.png" alt="Wella"></div>
-                        <div class="client-logo-card"><img src="./pachara.png" alt="Pachara"></div>
-                        <div class="client-logo-card"><img src="./cpn.png" alt="CPN"></div>
-                        <div class="client-logo-card"><img src="./baan.png" alt="Baan"></div>
-                        <div class="client-logo-card"><img src="./ashida.png" alt="Ashida"></div>
-                        <div class="client-logo-card"><img src="./fly.png" alt="Fly in Chiang Mai"></div>
-
-                        <div class="client-logo-card"><img src="./kham.png" alt="kham"></div>
-                        <div class="client-logo-card"><img src="./soul.png" alt="soul"></div>
-                         <div class="client-logo-card"><img src="./zoo.png" alt="zoo"></div>
-                        <div class="client-logo-card"><img src="./ngon.png" alt="ngon"></div>
-                        <div class="client-logo-card"><img src="./sanhom.png" alt="sanhom"></div>
-                        <div class="client-logo-card"><img src="./da.png" alt="da"></div>
-                        <div class="client-logo-card"><img src="./dow.png" alt="dow"></div>
-                        <div class="client-logo-card"><img src="./mala.png" alt="mala"></div>
-                        <div class="client-logo-card"><img src="./steak.png" alt="steak"></div>
-                        <div class="client-logo-card"><img src="./fine.png" alt="fine"></div>
-                        <div class="client-logo-card"><img src="./8hour.png" alt="8hour"></div>
-                        <div class="client-logo-card"><img src="./smart.png" alt="smart"></div>
-                        
-                        <!-- เพิ่ม Logo ใหม่ตรงนี้ได้เลย
-                             เช่น:
-                             <div class="client-logo-card">
-                                 <img src="./new-logo.png" alt="New Client">
-                             </div>
-                        -->
-
-                    </div>
+                <!-- Top row moves left-to-right; bottom row moves right-to-left. -->
+                <div class="client-viewport">
+                    <div class="client-track reverse" id="client-track-top"></div>
                 </div>
+                <div class="client-viewport">
+                    <div class="client-track" id="client-track-bottom"></div>
+                </div>
+            </div>
 
-                <button class="client-arrow next" id="client-next" type="button" aria-label="Next clients">
-                    <i class="fa-solid fa-chevron-right"></i>
-                </button>
-
-                <div class="client-dots" id="client-dots" aria-label="Client logo pages"></div>
+            <!-- Original logo list retained; JavaScript clones it into both moving rows. -->
+            <div id="client-logo-source" hidden>
+                <div class="client-logo-card"><img src="./ram.png" alt="RAM Hospital"></div>
+                <div class="client-logo-card"><img src="./central.png" alt="Central Chiangmai"></div>
+                <div class="client-logo-card"><img src="./major.png" alt="Major"></div>
+                <div class="client-logo-card"><img src="./im.png" alt="IM-MEE"></div>
+                <div class="client-logo-card"><img src="./noodle.png" alt="Noodle"></div>
+                <div class="client-logo-card"><img src="./kk.png" alt="KK"></div>
+                <div class="client-logo-card"><img src="./wella.png" alt="Wella"></div>
+                <div class="client-logo-card"><img src="./pachara.png" alt="Pachara"></div>
+                <div class="client-logo-card"><img src="./cpn.png" alt="CPN"></div>
+                <div class="client-logo-card"><img src="./baan.png" alt="Baan"></div>
+                <div class="client-logo-card"><img src="./ashida.png" alt="Ashida"></div>
+                <div class="client-logo-card"><img src="./fly.png" alt="Fly in Chiang Mai"></div>
+                <div class="client-logo-card"><img src="./kham.png" alt="kham"></div>
+                <div class="client-logo-card"><img src="./soul.png" alt="soul"></div>
+                <div class="client-logo-card"><img src="./zoo.png" alt="zoo"></div>
+                <div class="client-logo-card"><img src="./ngon.png" alt="ngon"></div>
+                <div class="client-logo-card"><img src="./sanhom.png" alt="sanhom"></div>
+                <div class="client-logo-card"><img src="./da.png" alt="da"></div>
+                <div class="client-logo-card"><img src="./dow.png" alt="dow"></div>
+                <div class="client-logo-card"><img src="./mala.png" alt="mala"></div>
+                <div class="client-logo-card"><img src="./steak.png" alt="steak"></div>
+                <div class="client-logo-card"><img src="./fine.png" alt="fine"></div>
+                <div class="client-logo-card"><img src="./8hour.png" alt="8hour"></div>
+                <div class="client-logo-card"><img src="./smart.png" alt="smart"></div>
+                <!-- Add new client-logo-card items here when needed. -->
             </div>
         </div>
     </section>
@@ -1586,109 +1495,37 @@
     </footer>
 
     <script>
-        // ===== Client Logo Carousel =====
+        // ===== Continuous Client Logo Marquee =====
         (() => {
-            const pages = document.getElementById('client-pages');
-            const viewport = document.getElementById('client-viewport');
-            const dots = document.getElementById('client-dots');
-            const prev = document.getElementById('client-prev');
-            const next = document.getElementById('client-next');
+            const source = document.getElementById('client-logo-source');
+            const topTrack = document.getElementById('client-track-top');
+            const bottomTrack = document.getElementById('client-track-bottom');
 
-            if (!pages || !viewport || !dots || !prev || !next) return;
+            if (!source || !topTrack || !bottomTrack) return;
 
-            const logos = Array.from(pages.querySelectorAll('.client-logo-card'));
-            const perPage = 12;
-            let current = 0;
-            let startX = 0;
-            let deltaX = 0;
-            let autoTimer;
+            const logos = Array.from(source.querySelectorAll('.client-logo-card'));
+            const topLogos = logos.filter((_, index) => index % 2 === 0);
+            const bottomLogos = logos.filter((_, index) => index % 2 !== 0);
 
-            // Build pages: 12 logos per page.
-            pages.innerHTML = '';
-            for (let i = 0; i < logos.length; i += perPage) {
-                const page = document.createElement('div');
-                page.className = 'client-page';
-                logos.slice(i, i + perPage).forEach(logo => page.appendChild(logo));
-                pages.appendChild(page);
-            }
-
-            const pageCount = pages.children.length;
-
-            if (pageCount <= 1) {
-                prev.style.display = 'none';
-                next.style.display = 'none';
-                dots.style.display = 'none';
-            }
-
-            for (let i = 0; i < pageCount; i++) {
-                const dot = document.createElement('button');
-                dot.type = 'button';
-                dot.className = 'client-dot' + (i === 0 ? ' active' : '');
-                dot.setAttribute('aria-label', `Go to client page ${i + 1}`);
-                dot.addEventListener('click', () => goTo(i));
-                dots.appendChild(dot);
-            }
-
-            function goTo(index) {
-                current = (index + pageCount) % pageCount;
-                pages.style.transform = `translateX(-${current * 100}%)`;
-
-                Array.from(dots.children).forEach((dot, i) => {
-                    dot.classList.toggle('active', i === current);
+            function buildTrack(track, items) {
+                track.replaceChildren();
+                // Two identical sets create a seamless loop at the -50% animation point.
+                [items, items].forEach((group, groupIndex) => {
+                    group.forEach((logo) => {
+                        const card = logo.cloneNode(true);
+                        if (groupIndex === 1) card.setAttribute('aria-hidden', 'true');
+                        const img = card.querySelector('img');
+                        if (img) {
+                            img.loading = 'eager';
+                            if (groupIndex === 1) img.alt = '';
+                        }
+                        track.appendChild(card);
+                    });
                 });
             }
 
-            prev.addEventListener('click', () => goTo(current - 1));
-            next.addEventListener('click', () => goTo(current + 1));
-
-            // Swipe left/right on mobile and trackpad.
-            viewport.addEventListener('touchstart', (e) => {
-                startX = e.touches[0].clientX;
-                deltaX = 0;
-            }, { passive: true });
-
-            viewport.addEventListener('touchmove', (e) => {
-                deltaX = e.touches[0].clientX - startX;
-            }, { passive: true });
-
-            viewport.addEventListener('touchend', () => {
-                if (Math.abs(deltaX) > 45) {
-                    goTo(deltaX < 0 ? current + 1 : current - 1);
-                    restartAuto();
-                }
-                deltaX = 0;
-            }, { passive: true });
-
-            // Mouse drag on desktop.
-            let mouseDown = false;
-            let mouseStart = 0;
-
-            viewport.addEventListener('mousedown', (e) => {
-                mouseDown = true;
-                mouseStart = e.clientX;
-            });
-
-            window.addEventListener('mouseup', (e) => {
-                if (!mouseDown) return;
-                const move = e.clientX - mouseStart;
-                if (Math.abs(move) > 55) {
-                    goTo(move < 0 ? current + 1 : current - 1);
-                    restartAuto();
-                }
-                mouseDown = false;
-            });
-
-            function startAuto() {
-                if (pageCount <= 1) return;
-                autoTimer = setInterval(() => goTo(current + 1), 6500);
-            }
-
-            function restartAuto() {
-                clearInterval(autoTimer);
-                startAuto();
-            }
-
-            startAuto();
+            buildTrack(topTrack, topLogos);
+            buildTrack(bottomTrack, bottomLogos);
         })();
 
         // Toggle mobile menu
@@ -1764,9 +1601,9 @@ function toggleContactMenu() {
 </a>
 
     <a
-    href="tel:+66979191941"
-    class="contact-option phone-option"
->
+      href="tel:0979191941"
+      class="contact-option"
+    >
       <span class="phone-icon">📞</span>
       โทรหาเรา
     </a>
