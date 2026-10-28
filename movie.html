@@ -18,7 +18,7 @@
 <meta property="og:url"
       content="https://mahamit-theater.vercel.app/">
 <meta property="og:image"
-      content="https://mahamit-theater.vercel.app/logo.png">
+      content="https://mahamit-theater.vercel.app/logo-w.png">
 
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -700,7 +700,7 @@
 <div class="intro-logo-wrap">
   <img
     class="intro-logo"
-    src="./logo.png"
+    src="./logo-w.png"
     alt="MAHAMIT Theater Logo"
   >
 </div>
@@ -875,7 +875,7 @@ function posterFallback(img) {
     >
       <!-- โลโก้ -->
       <img
-        src="./logo.png"
+        src="./logo-w.png"
         alt="เกรียงไกร มาหามิตร"
         class="w-20 sm:w-28 md:w-32 h-auto object-contain flex-shrink-0"
       >
@@ -1539,7 +1539,7 @@ function posterFallback(img) {
             return (Array.isArray(list) ? list : [])
                 .filter(m => m && /^m[a-z0-9]{1,15}$/.test(String(m.id)) && m.title)
                 .map(m => Object.assign({}, m, {
-                    poster: /^(\.\/|https:\/\/)/.test(String(m.poster || '')) ? m.poster : './logo.png'
+                    poster: /^(\.\/|https:\/\/)/.test(String(m.poster || '')) ? m.poster : './logo-w.png'
                 }));
         }
 
@@ -2701,7 +2701,7 @@ function hideBookingLoading() {
   <div class="booking-loading-card">
     <!-- เปลี่ยน src ให้เป็น URL โลโก้เดิมของเว็บไซต์ -->
     <img class="booking-loading-logo"
-         src="./logo.png"
+         src="./logo-w.png"
          alt="MAHAMIT THEATER">
 
    
