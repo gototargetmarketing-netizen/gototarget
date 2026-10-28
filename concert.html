@@ -2351,17 +2351,6 @@ body:has(#cartSummaryBtn:not(.hidden)) {
     >
 </div>
 
-        
-                <div>
-                    <h1 class="font-kanit font-bold text-base sm:text-xl text-amber-100 leading-tight tracking-wide"> Go To Concert </h1>
-                    <p class="text-[10px] sm:text-[11px] text-emerald-200/90 block mt-1">
-    A Celebration of Friendship Concert
-</p>
-                </div>
-
-
-        
-
             </div>
 
             <div class="flex items-center space-x-2 sm:space-x-4">
@@ -2405,7 +2394,7 @@ body:has(#cartSummaryBtn:not(.hidden)) {
         <span class="early100-label">SPECIAL DISCOUNT</span>
         <span class="early100-message">
             ใส่โค้ด <strong>EARLY100</strong>
-            เพื่อรับส่วนลด <strong>100 บาท</strong>
+            เพื่อรับส่วนลด <strong>100 บาท</strong>/ที่นั่ง
         </span>
     </div>
 </div>
@@ -2930,7 +2919,7 @@ body:has(#cartSummaryBtn:not(.hidden)) {
 
                         <div class="space-y-1">
                             <p class="text-xs text-posterMuted">บริษัท โกทูทาร์เก็ต จำกัด</p>
-                            <p class="text-xs font-semibold text-posterDark">ธนาคารกรุงไทย (KTB) เลขบัญชี: <span class="font-mono text-posterBurgundy font-bold">123-4-567-678</span></p>
+                            <p class="text-xs font-semibold text-posterDark">ธนาคารกรุงไทย (KTB) เลขบัญชี: <span class="font-mono text-posterBurgundy font-bold">123-4-567-890</span></p>
                         </div>
 
                         <!-- Real-time Dynamic PromptPay QR Code Generator -->
@@ -3289,7 +3278,7 @@ async function retrySeatStatus() {
         let selfSeatId = '';               // ที่นั่งที่ติ๊ก "ใช้ชื่อผู้จอง"
         let selfSeatTitleAuto = false;     // คำนำหน้าในที่นั่งที่ติ๊ก มาจากชื่อผู้จอง (ไม่ใช่ลูกค้าเลือกเอง)
         let renderedAttendeeSeats = null;  // ชุดที่นั่งที่สร้างช่องกรอกไว้ล่าสุด
-        let webAppUrl = localStorage.getItem('mm_web_app_url') || 'https://script.google.com/macros/s/AKfycbyhkmtmGz6rbR0VSiEq63cJjw5nWrnaraxsMh95474atB6iOK8gVjn7UCN8ofGRYwqP3A/exec';
+        let webAppUrl = localStorage.getItem('mm_web_app_url') || 'https://script.google.com/macros/s/AKfycbxd8IeSKLAQMUDemlL4jYJxy0FvcSwTh8NvhEGh9VJT0NJ_4SU3tlwpTkGNd_bv_ihNTg/exec';
 
         // Load authoritative seat status from Google Sheets on page load.
         // ใช้ DOMContentLoaded แทน window.onload เพื่อเริ่มโหลดที่นั่งทันที
@@ -4832,10 +4821,17 @@ function enterBooking() {
                 } else if (op.t === 'text') {
                     ctx.font = op.font;
                     ctx.fillStyle = op.color;
-                    ctx.textAlign = op.align;
+                    // จัดกึ่งกลาง/ชิดขวาเอง แล้ววาดชิดซ้ายเสมอ ไม่ใช้ ctx.textAlign
+                    // เพราะ Safari บน iPhone บางเครื่องไม่จัดตำแหน่งข้อความภาษาไทยตาม textAlign
+                    // (ข้อความไปเริ่มที่จุดกึ่งกลาง/ขอบขวาแทน ทีมทดสอบเจอ 28 ต.ค. 2569)
+                    // เบราว์เซอร์ที่จัดถูกอยู่แล้วก็คิดแบบเดียวกันนี้ รูปจึงออกมาเหมือนเดิม
+                    const textW = op.align === 'left' ? 0 : ctx.measureText(op.text).width;
+                    const textX = op.align === 'center' ? op.x - textW / 2
+                        : op.align === 'right' ? op.x - textW : op.x;
+                    ctx.textAlign = 'left';
                     // 'middle' วางกลางความสูงบรรทัด ทุกเบราว์เซอร์ให้ผลตรงกัน
                     ctx.textBaseline = 'middle';
-                    ctx.fillText(op.text, op.x, op.y + op.lh / 2);
+                    ctx.fillText(op.text, textX, op.y + op.lh / 2);
                 } else if (op.t === 'hourglass') {
                     // นาฬิกาทราย (แทนไอคอน Font Awesome ที่ canvas ใช้ไม่ได้)
                     const { x, y } = op;
@@ -5384,7 +5380,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         <!-- LOGO -->
         <img
-            src="./logo.png"
+            src="./logo-mahamit.png"
             alt="MAHAMIT CONCERT #2"
             class="booking-loading-logo"
         >
@@ -5689,8 +5685,7 @@ document.addEventListener('DOMContentLoaded', function () {
     
 
     
-<p class="text-[11px] sm:text-xs font-normal text-[#E4BE43] leading-tight">
-    
+<p class="text-[11px] sm:text-xs font-normal text-[#E4BE43] leading-tight">  
 Go To Target - Marketing Agency
 </p>
 
